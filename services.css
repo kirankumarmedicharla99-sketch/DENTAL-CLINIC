@@ -1,0 +1,947 @@
+/* ==========================================================================
+   ORALIZE — SERVICES PAGE STYLING
+   services.css — Scoped styling for main services page
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. SECTION 01 — SERVICES HERO
+   -------------------------------------------------------------------------- */
+.services-hero {
+  position: relative;
+  min-height: 100vh;
+  min-height: 100dvh;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  padding-top: calc(var(--header-height) + clamp(8px, 1.8vh, 22px));
+  padding-bottom: clamp(12px, 2.2vh, 26px);
+  background: linear-gradient(150deg, var(--color-soft-pink-surface) 0%, #fdebf0 50%, #fff8fa 100%);
+  border-bottom: 1px solid var(--color-border);
+  overflow: hidden;
+}
+
+.services-hero > .container-wide {
+  width: 100%;
+}
+
+[data-theme="dark"] .services-hero {
+  background: radial-gradient(circle at 75% 30%, #b81f3e 0%, #90142b 55%, #760e22 100%);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.16);
+}
+
+.services-breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  font-weight: 500;
+  margin-bottom: 8px;
+}
+
+.services-breadcrumb a {
+  color: var(--text-muted);
+  transition: color var(--transition-fast);
+}
+
+.services-breadcrumb a:hover {
+  color: var(--color-primary);
+}
+
+.services-breadcrumb-sep {
+  opacity: 0.5;
+}
+
+.services-breadcrumb-current {
+  color: var(--color-primary);
+  font-weight: 600;
+}
+
+[data-theme="dark"] .services-breadcrumb {
+  color: rgba(255, 255, 255, 0.72);
+}
+
+[data-theme="dark"] .services-breadcrumb a {
+  color: rgba(255, 255, 255, 0.75);
+}
+
+[data-theme="dark"] .services-breadcrumb a:hover {
+  color: #ffffff;
+}
+
+[data-theme="dark"] .services-breadcrumb-current {
+  color: #ffffff;
+}
+
+.services-hero-grid {
+  display: grid;
+  grid-template-columns: 1.12fr 1fr;
+  gap: clamp(32px, 3.8vw, 56px);
+  align-items: center;
+  position: relative;
+  z-index: 2;
+  width: 100%;
+}
+
+.services-hero-content {
+  max-width: 620px;
+}
+
+/* --- Left Column: Content Hierarchy --- */
+.services-hero-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-heading);
+  font-size: 0.8125rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-primary);
+  background: #fde2e8;
+  border: 1px solid rgba(181, 31, 61, 0.18);
+  padding: 6px 16px;
+  border-radius: var(--radius-pill);
+  margin-bottom: 20px;
+  box-shadow: 0 2px 8px rgba(181, 31, 61, 0.08);
+}
+
+.services-eyebrow-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-primary);
+}
+
+[data-theme="dark"] .services-hero-eyebrow {
+  background: rgba(255, 255, 255, 0.16);
+  color: #ffffff;
+  border-color: rgba(255, 255, 255, 0.28);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.18);
+}
+
+[data-theme="dark"] .services-eyebrow-icon {
+  color: #ffffff;
+}
+
+/* Headline: Balanced, perfectly scaled typography */
+.services-hero-title {
+  font-size: clamp(2.5rem, 4.4vw, 4.2rem);
+  font-weight: 800;
+  line-height: 1.12;
+  letter-spacing: -0.03em;
+  color: var(--text-main);
+  margin-bottom: 18px;
+  text-wrap: balance;
+}
+
+[data-theme="dark"] .services-hero-title {
+  color: #ffffff;
+}
+
+.services-title-line-inline {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  vertical-align: middle;
+}
+
+.services-title-accent {
+  background: linear-gradient(135deg, var(--color-primary) 0%, #d62f54 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+}
+
+[data-theme="dark"] .services-title-accent {
+  background: linear-gradient(135deg, #ffffff 0%, #ffd6e0 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Inline Patient Avatars beside the word 'Smile' */
+.services-inline-avatars {
+  display: inline-flex;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.94);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  padding: 4px 14px 4px 6px;
+  border-radius: var(--radius-pill);
+  border: 1px solid rgba(181, 31, 61, 0.18);
+  box-shadow: 0 4px 14px rgba(34, 29, 33, 0.08);
+  vertical-align: middle;
+}
+
+[data-theme="dark"] .services-inline-avatars {
+  background: rgba(255, 255, 255, 0.18);
+  border-color: rgba(255, 255, 255, 0.3);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.3);
+}
+
+.service-inline-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #ffffff;
+  margin-inline-start: -8px;
+}
+
+.service-inline-avatar:first-child {
+  margin-inline-start: 0;
+}
+
+[data-theme="dark"] .service-inline-avatar {
+  border-color: rgba(255, 255, 255, 0.85);
+}
+
+.service-inline-count {
+  font-family: var(--font-heading);
+  font-size: 0.98rem;
+  font-weight: 800;
+  color: var(--color-primary);
+  margin-inline-start: 8px;
+}
+
+[data-theme="dark"] .service-inline-count {
+  color: #ffffff;
+}
+
+.services-hero-desc {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: var(--text-muted);
+  max-width: 530px;
+  margin-bottom: 22px;
+}
+
+[data-theme="dark"] .services-hero-desc {
+  color: rgba(255, 255, 255, 0.92);
+}
+
+/* Bottom Left Feature Zone: Celebrating Patient + Stat Card + Rotating Sticker */
+.services-hero-showcase {
+  position: relative;
+  width: 100%;
+  max-width: 530px;
+  height: 220px;
+  margin-top: 6px;
+}
+
+/* Stat Badge Card Behind/Beside Patient (Left Side) */
+.services-showcase-stat-card {
+  position: absolute;
+  left: 0;
+  top: 14px;
+  z-index: 1;
+  background: rgba(255, 255, 255, 0.94);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(181, 31, 61, 0.18);
+  border-radius: 18px;
+  padding: 14px 20px;
+  box-shadow: 0 12px 28px rgba(34, 29, 33, 0.08);
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+[data-theme="dark"] .services-showcase-stat-card {
+  background: rgba(255, 255, 255, 0.18);
+  border-color: rgba(255, 255, 255, 0.32);
+  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.4);
+}
+
+.services-stat-number {
+  font-family: var(--font-heading);
+  font-size: 2.3rem;
+  font-weight: 800;
+  line-height: 1;
+  color: var(--color-primary);
+  letter-spacing: -0.02em;
+}
+
+[data-theme="dark"] .services-stat-number {
+  color: #ffffff;
+}
+
+.services-stat-label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  line-height: 1.25;
+  max-width: 110px;
+}
+
+[data-theme="dark"] .services-stat-label {
+  color: rgba(255, 255, 255, 0.88);
+}
+
+/* Transparent Celebrating Patient Image (Center of Showcase) */
+.services-showcase-patient {
+  position: absolute;
+  left: 125px;
+  bottom: 0;
+  width: 220px;
+  height: 220px;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.services-patient-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: bottom center;
+  filter: drop-shadow(0 14px 24px rgba(34, 29, 33, 0.16));
+}
+
+[data-theme="dark"] .services-patient-img {
+  filter: drop-shadow(0 18px 30px rgba(0, 0, 0, 0.55));
+}
+
+/* Rotating Circular Consultation Sticker / CTA Button (Right of Showcase) */
+.services-circular-badge {
+  position: absolute;
+  right: 12px;
+  bottom: 8px;
+  z-index: 3;
+  width: 124px;
+  height: 124px;
+  border-radius: 50%;
+  background: #fde2e8;
+  border: 2px solid rgba(181, 31, 61, 0.22);
+  color: var(--color-primary);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 12px 28px rgba(181, 31, 61, 0.22);
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease, background-color 0.25s ease;
+  padding: 0;
+}
+
+.services-circular-badge:hover {
+  transform: scale(1.08) rotate(5deg);
+  background: #fcd5df;
+  box-shadow: 0 16px 36px rgba(181, 31, 61, 0.36);
+}
+
+[data-theme="dark"] .services-circular-badge {
+  background: #ffffff;
+  border-color: #ffffff;
+  color: #97172F;
+  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.42);
+}
+
+[data-theme="dark"] .services-circular-badge:hover {
+  background: #fff0f3;
+  transform: scale(1.08) rotate(5deg);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.52);
+}
+
+.services-rotating-text {
+  width: 124px;
+  height: 124px;
+  animation: rotateBadgeClockwise 20s linear infinite;
+  transform-origin: center;
+  pointer-events: none;
+}
+
+@keyframes rotateBadgeClockwise {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.services-badge-arrow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.25s ease;
+  pointer-events: none;
+}
+
+.services-circular-badge:hover .services-badge-arrow {
+  transform: translate(-42%, -58%);
+}
+
+/* --- Right Column: Dominant 3D Tooth Sculpture (NO CARD) --- */
+.services-hero-visual {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: auto;
+  height: 100%;
+}
+
+/* Free-floating 3D stage with NO enclosing card box */
+.services-tooth-stage {
+  position: relative;
+  width: 100%;
+  max-width: 720px;
+  min-height: auto;
+  height: clamp(320px, 50vh, 560px);
+  max-height: 560px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Ambient Radial Glow Behind Tooth Sculpture */
+.services-tooth-ambient-glow {
+  position: absolute;
+  top: 48%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 580px;
+  height: 580px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(241, 122, 145, 0.36) 0%, rgba(181, 31, 61, 0.16) 45%, transparent 72%);
+  filter: blur(48px);
+  z-index: 0;
+  pointer-events: none;
+  animation: serviceGlowPulse 6s ease-in-out infinite alternate;
+}
+
+[data-theme="dark"] .services-tooth-ambient-glow {
+  background: radial-gradient(circle, rgba(255, 185, 205, 0.34) 0%, rgba(241, 122, 145, 0.2) 48%, transparent 74%);
+  filter: blur(56px);
+}
+
+@keyframes serviceGlowPulse {
+  0% {
+    transform: translate(-50%, -50%) scale(0.92);
+    opacity: 0.7;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1.1);
+    opacity: 1;
+  }
+}
+
+/* Floating animation for 3D Sculpture */
+.services-tooth-float-wrap {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: serviceSculptureFloat 7s ease-in-out infinite alternate;
+  will-change: transform;
+  width: 100%;
+}
+
+@keyframes serviceSculptureFloat {
+  0% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  100% {
+    transform: translateY(-14px) rotate(0.8deg);
+  }
+}
+
+.services-tooth-3d-img {
+  max-height: clamp(300px, 48vh, 540px);
+  width: auto;
+  max-width: 100%;
+  object-fit: contain;
+  display: block;
+  user-select: none;
+  -webkit-user-drag: none;
+  filter: drop-shadow(0 26px 42px rgba(181, 31, 61, 0.2)) drop-shadow(0 14px 22px rgba(34, 29, 33, 0.12));
+  transition: filter 0.3s ease, transform 0.3s ease;
+  transform: scale(1.1);
+}
+
+.services-tooth-float-wrap:hover .services-tooth-3d-img {
+  filter: drop-shadow(0 32px 52px rgba(181, 31, 61, 0.3)) drop-shadow(0 18px 30px rgba(34, 29, 33, 0.18));
+  transform: scale(1.14);
+}
+
+[data-theme="dark"] .services-tooth-3d-img {
+  filter: drop-shadow(0 28px 48px rgba(0, 0, 0, 0.58)) drop-shadow(0 0 42px rgba(255, 255, 255, 0.18));
+}
+
+[data-theme="dark"] .services-tooth-float-wrap:hover .services-tooth-3d-img {
+  filter: drop-shadow(0 34px 58px rgba(0, 0, 0, 0.68)) drop-shadow(0 0 54px rgba(255, 255, 255, 0.3));
+}
+
+/* Soft Ground Ambient Shadow */
+.services-tooth-ground-shadow {
+  position: absolute;
+  bottom: 8px;
+  left: 50%;
+  width: 360px;
+  height: 36px;
+  border-radius: 50%;
+  background: radial-gradient(ellipse at center, rgba(34, 29, 33, 0.34) 0%, rgba(181, 31, 61, 0.18) 42%, transparent 75%);
+  filter: blur(14px);
+  transform: translateX(-50%);
+  z-index: 1;
+  pointer-events: none;
+  animation: serviceShadowPulse 7s ease-in-out infinite alternate;
+}
+
+[data-theme="dark"] .services-tooth-ground-shadow {
+  background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.3) 48%, transparent 75%);
+  filter: blur(16px);
+}
+
+@keyframes serviceShadowPulse {
+  0% {
+    transform: translateX(-50%) scale(1);
+    opacity: 0.36;
+  }
+  100% {
+    transform: translateX(-50%) scale(0.86);
+    opacity: 0.22;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   2. SECTION 02 & 03 — SIX SERVICE CARDS GRID
+   -------------------------------------------------------------------------- */
+.services-catalog {
+  background: var(--bg-surface);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.services-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+  margin-top: 40px;
+}
+
+.service-card-item {
+  background: var(--bg-surface-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  box-shadow: var(--shadow-sm);
+  transition: all var(--transition-normal);
+  position: relative;
+}
+
+.service-card-item:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--color-blush-pink);
+}
+
+.service-card-img-wrap {
+  height: 240px;
+  overflow: hidden;
+  position: relative;
+}
+
+.service-card-img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--transition-slow);
+}
+
+.service-card-item:hover .service-card-img-wrap img {
+  transform: scale(1.08);
+}
+
+.service-card-body {
+  padding: 30px 28px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.service-card-cat {
+  font-size: 0.775rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-primary);
+  margin-bottom: 8px;
+}
+
+[data-theme="dark"] .service-card-cat {
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.16);
+  padding: 3px 10px;
+  border-radius: var(--radius-pill);
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  display: inline-block;
+  width: fit-content;
+}
+
+.service-card-body h3 {
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin-bottom: 12px;
+  color: var(--text-main);
+  transition: color var(--transition-fast);
+}
+
+.service-card-item:hover .service-card-body h3 {
+  color: var(--color-primary);
+}
+
+.service-card-body p {
+  font-size: 0.9375rem;
+  line-height: 1.65;
+  color: var(--text-muted);
+  margin-bottom: 24px;
+  flex-grow: 1;
+}
+
+.service-card-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-heading);
+  font-size: 0.925rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  transition: gap var(--transition-fast);
+  margin-top: auto;
+}
+
+.service-card-item:hover .service-card-link {
+  gap: 12px;
+  color: var(--color-deep-red);
+}
+
+[data-theme="dark"] .service-card-link {
+  color: #ffffff !important;
+  font-weight: 700;
+}
+
+[data-theme="dark"] .service-card-link:hover {
+  color: #ffccd5 !important;
+}
+
+[data-theme="dark"] .service-card-item:hover .service-card-body h3 {
+  color: #ffffff !important;
+  text-shadow: 0 0 16px rgba(255, 255, 255, 0.4);
+}
+
+[data-theme="dark"] .service-card-item:hover .service-card-body p {
+  color: #ffffff !important;
+}
+
+[data-theme="dark"] .service-card-item:hover .service-card-link {
+  color: #ffffff !important;
+  gap: 12px;
+  text-shadow: 0 0 12px rgba(255, 255, 255, 0.35);
+}
+
+/* --------------------------------------------------------------------------
+   3. SECTION 04 — OUR APPROACH TO DENTAL CARE
+   -------------------------------------------------------------------------- */
+.services-approach {
+  background: var(--bg-body);
+}
+
+.services-approach-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.15fr;
+  gap: 70px;
+  align-items: center;
+}
+
+.services-approach-visual {
+  position: relative;
+}
+
+.services-approach-img-box {
+  width: 100%;
+  height: 480px;
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  box-shadow: var(--shadow-xl);
+  border: 1px solid var(--color-border);
+}
+
+.services-approach-img-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.services-approach-content h2 {
+  font-size: clamp(2.2rem, 3.2vw, 2.85rem);
+  line-height: 1.15;
+  margin-bottom: 20px;
+}
+
+.services-approach-content p {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: var(--text-muted);
+  margin-bottom: 30px;
+}
+
+.services-principles-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-bottom: 36px;
+}
+
+.services-principle-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.services-principle-num {
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-md);
+  background: var(--color-blush-pink);
+  color: var(--color-deep-red);
+  font-family: var(--font-heading);
+  font-size: 1rem;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+[data-theme="dark"] .services-principle-num {
+  background: rgba(255, 255, 255, 0.18);
+  color: #ffffff;
+  border: 1.5px solid rgba(255, 255, 255, 0.45);
+  box-shadow: 0 0 12px rgba(255, 255, 255, 0.2);
+}
+
+.services-principle-text h4 {
+  font-size: 1.1rem;
+  margin-bottom: 4px;
+}
+
+.services-principle-text p {
+  font-size: 0.9rem;
+  line-height: 1.55;
+  margin: 0;
+}
+
+/* --------------------------------------------------------------------------
+   4. SECTION 05 — PREMIUM CTA
+   -------------------------------------------------------------------------- */
+.services-cta-section {
+  background: var(--bg-surface);
+  padding-block: 60px 100px;
+}
+
+.services-cta-banner {
+  background: radial-gradient(circle at 75% 30%, #ce2448 0%, #a01732 50%, #760e22 100%);
+  border-radius: var(--radius-xl);
+  padding: 70px 60px;
+  color: #ffffff;
+  position: relative;
+  overflow: hidden;
+  box-shadow: var(--shadow-xl);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  transition: transform var(--transition-normal), box-shadow var(--transition-normal), border-color var(--transition-normal);
+}
+
+.services-cta-banner:hover {
+  box-shadow: 0 24px 60px rgba(181, 31, 61, 0.35);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+[data-theme="dark"] .services-cta-banner {
+  background: radial-gradient(circle at 75% 30%, #a01732 0%, #760e22 55%, #500715 100%);
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.45), 0 0 40px rgba(216, 178, 110, 0.15);
+}
+
+[data-theme="dark"] .services-cta-banner:hover {
+  border-color: rgba(216, 178, 110, 0.6);
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.55), 0 0 50px rgba(216, 178, 110, 0.3);
+  transform: translateY(-2px);
+}
+
+.services-cta-grid {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  gap: 40px;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+}
+
+.services-cta-content h2 {
+  color: #ffffff;
+  font-size: clamp(2rem, 3.5vw, 2.85rem);
+  font-weight: 800;
+  line-height: 1.15;
+  margin-bottom: 16px;
+}
+
+.services-cta-content p {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 1.1rem;
+  line-height: 1.65;
+  margin: 0;
+  max-width: 540px;
+}
+
+.services-cta-actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+/* --------------------------------------------------------------------------
+   5. RESPONSIVE BREAKPOINTS (SERVICES)
+   -------------------------------------------------------------------------- */
+@media (max-width: 992px) {
+  .services-hero {
+    min-height: auto;
+    padding-top: calc(var(--header-height) + 20px);
+    padding-bottom: 40px;
+  }
+
+  .services-cards-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .services-hero-grid,
+  .services-approach-grid,
+  .services-cta-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .services-hero-visual {
+    min-height: 520px;
+    margin-top: 10px;
+  }
+
+  .services-tooth-stage {
+    height: 520px;
+    max-width: 560px;
+  }
+
+  .services-tooth-3d-img {
+    max-height: 500px;
+  }
+
+  .services-cta-actions {
+    justify-content: flex-start;
+  }
+}
+
+@media (max-width: 600px) {
+  .services-cards-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .services-hero {
+    padding-top: calc(var(--header-height) + 24px);
+    padding-bottom: 50px;
+  }
+
+  .services-hero-showcase {
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    margin-top: 24px;
+  }
+
+  .services-showcase-patient {
+    position: static;
+    width: 200px;
+    height: 220px;
+  }
+
+  .services-showcase-stat-card {
+    position: static;
+    width: fit-content;
+    text-align: center;
+    align-items: center;
+  }
+
+  .services-circular-badge {
+    position: static;
+    margin: 8px auto 0;
+  }
+
+  .services-hero-visual {
+    min-height: 420px;
+  }
+
+  .services-tooth-stage {
+    height: 420px;
+    max-width: 380px;
+  }
+
+  .services-tooth-3d-img {
+    max-height: 380px;
+  }
+
+  .services-cta-banner {
+    padding: 44px 24px;
+  }
+}
+
+/* Ultra-wide Screen Scaling (1920px - 2560px+) */
+@media (min-width: 1920px) {
+  .services-hero {
+    min-height: 100vh;
+    min-height: 100dvh;
+  }
+
+  .services-hero-showcase {
+    max-width: 620px;
+    height: 250px;
+  }
+
+  .services-tooth-stage {
+    height: clamp(540px, 54vh, 660px);
+    max-width: 680px;
+  }
+
+  .services-tooth-3d-img {
+    max-height: clamp(500px, 50vh, 600px);
+  }
+}
+
+@media (min-width: 2560px) {
+  .services-hero {
+    min-height: 100vh;
+    min-height: 100dvh;
+  }
+
+  .services-hero-showcase {
+    max-width: 700px;
+    height: 280px;
+  }
+
+  .services-tooth-stage {
+    height: clamp(620px, 56vh, 740px);
+    max-width: 780px;
+  }
+
+  .services-tooth-3d-img {
+    max-height: clamp(560px, 52vh, 660px);
+  }
+}
+

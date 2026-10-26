@@ -1,0 +1,1524 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Oralize Clinical Suite — Comprehensive Dental Practice Management Dashboard with real-time analytics, appointments, patient charts, and billing.">
+  <meta name="keywords" content="dental dashboard, clinic management, operatory schedule, patient charts, dental billing">
+  <title>Oralize Dental Dashboard — Clinical Suite & Operations Portal</title>
+
+  <link rel="icon" type="image/png" href="assets/images/logo.png">
+
+  <link rel="stylesheet" href="index.css">
+  <link rel="stylesheet" href="dashboard.css">
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body class="dashboard-body">
+
+  <header class="dash-header" id="dash-header">
+    <div class="dash-header-inner">
+
+      <div class="dash-header-left">
+        <button type="button" class="dash-sidebar-toggle" id="dash-sidebar-toggle" aria-label="Toggle navigation drawer">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
+
+        <a href="index.html" class="brand-logo dash-brand" aria-label="Oralize Dental Home" title="Return to Oralize Public Site">
+          <span class="brand-logo-icon">
+            <img src="assets/images/logo.png" alt="Oralize Dental Logo" class="brand-logo-img" width="38" height="38">
+          </span>
+          <span>Oralize</span>
+        </a>
+      </div>
+
+      <div class="dash-header-welcome">
+        <h1 class="dash-welcome-title" id="dash-greeting-text">
+          <span>Good morning, <span class="highlight-champagne">Dr. Sarah</span></span>
+        </h1>
+      </div>
+
+      <div class="dash-header-right">
+
+        <button type="button" class="dash-ctrl-btn rtl-toggle" id="dash-rtl-btn" aria-label="Toggle RTL layout" title="Toggle RTL layout">
+          <span class="rtl-label" style="font-size: 0.76rem; font-weight: 800;">RTL</span>
+        </button>
+
+        <button type="button" class="dash-ctrl-btn theme-toggle" id="dash-theme-btn" aria-label="Switch theme mode" title="Switch theme mode">
+          <span class="theme-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+          </span>
+        </button>
+
+        <div class="dash-notif-wrap" style="position: relative;">
+          <button type="button" class="dash-ctrl-btn" id="dash-notif-btn" aria-label="Notifications" aria-expanded="false" title="Notifications">
+            <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
+              <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
+            </svg>
+            <span class="dash-ctrl-badge" id="dash-notif-badge">4</span>
+          </button>
+
+          <div class="dash-popover dash-notif-popover" id="dash-notif-popover">
+            <div class="dash-popover-header">
+              <span class="dash-popover-title">Clinical Notifications</span>
+              <button type="button" class="dash-popover-action" id="dash-notif-mark-read">Mark all as read</button>
+            </div>
+            <div class="dash-notif-list" id="dash-notif-list">
+              <div class="dash-notif-item unread" data-id="1">
+                <div class="dash-notif-icon urgent">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+                </div>
+                <div class="dash-notif-content">
+                  <p class="dash-notif-text"><strong>Urgent Check-in:</strong> Eleanor Vance arrived early for Invisalign alignment checkup.</p>
+                  <span class="dash-notif-meta">5m ago • Reception</span>
+                </div>
+                <span class="dash-notif-dot"></span>
+              </div>
+              <div class="dash-notif-item unread" data-id="2">
+                <div class="dash-notif-icon info">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 18h8"/><path d="M3 22h18"/><path d="m14 22 3-3 3 3"/><path d="M9 14h2"/><path d="M9 12a2 2 0 0 1-2-2V6h6v4a2 2 0 0 1-2 2Z"/><path d="m12 6 4-4 3 3-4 4"/></svg>
+                </div>
+                <div class="dash-notif-content">
+                  <p class="dash-notif-text"><strong>Lab Results:</strong> 3D CBCT Scan ready for patient David Miller (Operatory 1).</p>
+                  <span class="dash-notif-meta">22m ago • Digital Diagnostics</span>
+                </div>
+                <span class="dash-notif-dot"></span>
+              </div>
+              <div class="dash-notif-item unread" data-id="3">
+                <div class="dash-notif-icon success">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="14" x="2" y="5" rx="2"/><line x1="2" x2="22" y1="10" y2="10"/></svg>
+                </div>
+                <div class="dash-notif-content">
+                  <p class="dash-notif-text"><strong>Claim Approved:</strong> Delta Dental reimbursed $1,850 for procedure #PR-8831.</p>
+                  <span class="dash-notif-meta">1h ago • Billing Dept</span>
+                </div>
+                <span class="dash-notif-dot"></span>
+              </div>
+              <div class="dash-notif-item unread" data-id="4">
+                <div class="dash-notif-icon info">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"/><path d="M8 16H3v5"/></svg>
+                </div>
+                <div class="dash-notif-content">
+                  <p class="dash-notif-text"><strong>Sterilization Cycle:</strong> Operatory 3 autoclave cycle completed and verified safe.</p>
+                  <span class="dash-notif-meta">2h ago • Infection Control</span>
+                </div>
+                <span class="dash-notif-dot"></span>
+              </div>
+            </div>
+            <div class="dash-popover-footer">
+              <a href="#appointments" class="dash-switch-tab-link" data-tab="appointments">View Full Clinical Queue →</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="dash-user-wrap" style="position: relative;">
+          <button type="button" class="dash-profile-btn" id="dash-profile-btn" aria-label="User profile menu" aria-expanded="false">
+            <div class="dash-avatar-wrap">
+              <img src="assets/images/doctor_sarah.jpg" alt="Dr. Sarah Jenkins" class="dash-avatar-img">
+              <span class="dash-avatar-status" id="dash-profile-status-indicator"></span>
+            </div>
+            <div class="dash-profile-info">
+              <span class="dash-profile-name">Dr. Sarah Jenkins</span>
+              <span class="dash-profile-role">Lead Orthodontist</span>
+            </div>
+            <svg class="dash-profile-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+
+          <div class="dash-popover dash-user-popover" id="dash-user-popover">
+            <div class="dash-user-card-head">
+              <div class="dash-avatar-wrap" style="width: 44px; height: 44px;">
+                <img src="assets/images/doctor_sarah.jpg" alt="Dr. Sarah Jenkins" class="dash-avatar-img">
+              </div>
+              <div class="dash-profile-info">
+                <span class="dash-profile-name" style="font-size: 0.95rem;">Dr. Sarah Jenkins, DDS</span>
+                <span class="dash-profile-role">License #DE-89214 • Active</span>
+              </div>
+            </div>
+
+            <div class="dash-user-status-select">
+              <div class="dash-status-label">Clinical Status</div>
+              <div class="dash-status-options">
+                <button type="button" class="dash-status-pill active" data-status="available">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>
+                  <span>Available</span>
+                </button>
+                <button type="button" class="dash-status-pill" data-status="surgery">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+                  <span>In Surgery</span>
+                </button>
+                <button type="button" class="dash-status-pill" data-status="break">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10 2v2"/><path d="M14 2v2"/><path d="M16 8a1 1 0 0 1 1 1v8a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4V9a1 1 0 0 1 1-1h12Zm0 0h2a3 3 0 0 1 3 3v1a3 3 0 0 1-3 3h-2"/><path d="M6 2v2"/></svg>
+                  <span>Break</span>
+                </button>
+              </div>
+            </div>
+
+            <div class="dash-user-menu">
+              <a href="#appointments" class="dash-user-menu-item dash-switch-tab-link" data-tab="appointments">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                <span>My Appointments Today</span>
+              </a>
+              <a href="index.html" class="dash-user-menu-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+                <span>Public Website Homepage</span>
+              </a>
+              <button type="button" class="dash-user-menu-item" id="dash-settings-trigger" style="width: 100%; border: none; background: none; font: inherit;">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+                <span>Clinic System Settings</span>
+              </button>
+              <button type="button" class="dash-user-menu-item logout" id="dash-logout-trigger" style="width: 100%; border: none; background: none; font: inherit;">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg>
+                <span>Log Out of Portal</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </header>
+
+  <div class="dash-container">
+
+    <aside class="dash-sidebar" id="dash-sidebar">
+
+      <div class="dash-side-doctor-card">
+        <div class="dash-avatar-wrap">
+          <img src="assets/images/doctor_sarah.jpg" alt="Dr. Sarah" class="dash-avatar-img">
+          <span class="dash-avatar-status"></span>
+        </div>
+        <div class="dash-profile-info">
+          <span class="dash-profile-name">Dr. Sarah Jenkins</span>
+          <span class="dash-side-doctor-badge">● Operatory 2 Active</span>
+        </div>
+      </div>
+
+      <button type="button" class="dash-side-cta" id="dash-quick-book-btn">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+        <span>New Appointment</span>
+      </button>
+
+      <div class="dash-nav-group-label">Navigation Menu</div>
+      <nav class="dash-nav-list" id="dash-sidebar-nav">
+
+        <button type="button" class="dash-nav-link active" data-tab="overview" id="nav-btn-overview">
+          <div class="dash-nav-link-content">
+            <span class="dash-nav-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
+            </span>
+            <span>Overview</span>
+          </div>
+          <span class="dash-nav-tag">Live</span>
+        </button>
+
+        <button type="button" class="dash-nav-link" data-tab="appointments" id="nav-btn-appointments">
+          <div class="dash-nav-link-content">
+            <span class="dash-nav-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+            </span>
+            <span>Appointments</span>
+          </div>
+          <span class="dash-nav-tag">38 Today</span>
+        </button>
+
+        <button type="button" class="dash-nav-link" data-tab="patients" id="nav-btn-patients">
+          <div class="dash-nav-link-content">
+            <span class="dash-nav-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+            </span>
+            <span>Patients</span>
+          </div>
+          <span class="dash-nav-tag">1,420</span>
+        </button>
+
+        <button type="button" class="dash-nav-link" data-tab="doctors" id="nav-btn-doctors">
+          <div class="dash-nav-link-content">
+            <span class="dash-nav-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M11 2v2"></path><path d="M5 2v2"></path><path d="M5 3H4a2 2 0 0 0-2 2v4a6 6 0 0 0 12 0V5a2 2 0 0 0-2-2h-1"></path><path d="M8 15a6 6 0 0 0 12 0v-3"></path><circle cx="20" cy="10" r="2"></circle></svg>
+            </span>
+            <span>Doctors & Staff</span>
+          </div>
+          <span class="dash-nav-tag">8 On Duty</span>
+        </button>
+
+        <button type="button" class="dash-nav-link" data-tab="treatments" id="nav-btn-treatments">
+          <div class="dash-nav-link-content">
+            <span class="dash-nav-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 2C8.5 2 6 4.5 6 8c0 3.5 1.5 7.5 2.5 11 .5 1.8 1.8 3 3.5 3s3-1.2 3.5-3c1-3.5 2.5-7.5 2.5-11 0-3.5-2.5-6-6-6z"/></svg>
+            </span>
+            <span>Treatments</span>
+          </div>
+          <span class="dash-nav-tag">16 Specs</span>
+        </button>
+
+        <button type="button" class="dash-nav-link" data-tab="billing" id="nav-btn-billing">
+          <div class="dash-nav-link-content">
+            <span class="dash-nav-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect><line x1="1" y1="10" x2="23" y2="10"></line></svg>
+            </span>
+            <span>Billing & Analytics</span>
+          </div>
+          <span class="dash-nav-tag">$148k</span>
+        </button>
+
+      </nav>
+
+      <div class="dash-side-footer">
+        <div class="dash-side-cloud-sync">
+          <div style="display: flex; align-items: center; gap: 6px;">
+            <span class="dash-sync-indicator"></span>
+            <span>Oralize Cloud Sync</span>
+          </div>
+          <strong style="color: #10b981;">0.18s</strong>
+        </div>
+
+        <button type="button" class="dash-sidebar-logout-btn" id="dash-sidebar-logout-btn" aria-label="Log out of clinical portal">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
+            <polyline points="16 17 21 12 16 7"></polyline>
+            <line x1="21" y1="12" x2="9" y2="12"></line>
+          </svg>
+          <span>Logout</span>
+        </button>
+      </div>
+
+    </aside>
+
+    <main class="dash-content-area" id="dash-main-content">
+
+      <section class="dash-tab-panel active" id="tab-overview" role="tabpanel" aria-labelledby="nav-btn-overview">
+
+        <div class="dash-section-header">
+          <div class="dash-section-title-wrap">
+            <h2>Clinic <span class="highlight-champagne">Executive Overview</span></h2>
+            <p class="dash-section-desc">Real-time financial performance, chair utilization time, and clinical workflow metrics.</p>
+          </div>
+          <div class="dash-section-actions">
+            <div class="dash-filter-pill-group">
+              <button type="button" class="dash-filter-pill active" data-period="today">Today</button>
+              <button type="button" class="dash-filter-pill" data-period="week">This Week</button>
+              <button type="button" class="dash-filter-pill" data-period="month">Month-to-Date</button>
+              <button type="button" class="dash-filter-pill" data-period="year">Full Year</button>
+            </div>
+            <button type="button" class="dash-btn dash-btn-outline" id="dash-export-report-btn">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+              <span>Export Report</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="dash-kpi-grid">
+
+          <div class="dash-kpi-card">
+            <div class="dash-kpi-top">
+              <span class="dash-kpi-label">Total Clinical Revenue</span>
+              <div class="dash-kpi-icon revenue">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+              </div>
+            </div>
+            <div class="dash-kpi-value" id="kpi-revenue-val">$148,250</div>
+            <div class="dash-kpi-bottom">
+              <span class="dash-trend-badge up">↑ 14.8%</span>
+              <span>vs last month ($129k)</span>
+            </div>
+          </div>
+
+          <div class="dash-kpi-card">
+            <div class="dash-kpi-top">
+              <span class="dash-kpi-label">Operatory Chair Time</span>
+              <div class="dash-kpi-icon time">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+              </div>
+            </div>
+            <div class="dash-kpi-value" id="kpi-chair-val">6.8 hrs<span style="font-size: 1rem; font-weight: 500; color: var(--text-muted);">/day</span></div>
+            <div class="dash-kpi-bottom">
+              <span class="dash-trend-badge up">↑ 88.4%</span>
+              <span>Chair capacity utilization</span>
+            </div>
+          </div>
+
+          <div class="dash-kpi-card">
+            <div class="dash-kpi-top">
+              <span class="dash-kpi-label">Total Patient Visits</span>
+              <div class="dash-kpi-icon visits">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle></svg>
+              </div>
+            </div>
+            <div class="dash-kpi-value" id="kpi-visits-val">1,420</div>
+            <div class="dash-kpi-bottom">
+              <span class="dash-trend-badge up">↑ 8.2%</span>
+              <span>42 checked in today</span>
+            </div>
+          </div>
+
+          <div class="dash-kpi-card">
+            <div class="dash-kpi-top">
+              <span class="dash-kpi-label">Avg Treatment Time</span>
+              <div class="dash-kpi-icon efficiency">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+              </div>
+            </div>
+            <div class="dash-kpi-value" id="kpi-time-val">42.5 min</div>
+            <div class="dash-kpi-bottom">
+              <span class="dash-trend-badge up">↓ 6.5m</span>
+              <span>Faster with Ultrasonic tools</span>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="dash-charts-grid">
+
+          <div class="dash-card">
+            <div class="dash-card-header">
+              <div class="dash-card-title-group">
+                <h3 class="dash-card-title">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary)" stroke-width="2.2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg>
+                  <span>Revenue & Patient Flow Trajectory</span>
+                </h3>
+                <span class="dash-card-subtitle">Monthly financial comparisons across 2026 vs 2025</span>
+              </div>
+              <div class="dash-filter-pill-group">
+                <button type="button" class="dash-filter-pill active" id="chart-filter-all">Combined</button>
+                <button type="button" class="dash-filter-pill" id="chart-filter-rev">Revenue</button>
+                <button type="button" class="dash-filter-pill" id="chart-filter-patients">Patients</button>
+              </div>
+            </div>
+            <div class="dash-chart-container">
+              <canvas id="dash-line-chart"></canvas>
+            </div>
+          </div>
+
+          <div class="dash-card">
+            <div class="dash-card-header">
+              <div class="dash-card-title-group">
+                <h3 class="dash-card-title">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary)" stroke-width="2.2"><circle cx="12" cy="12" r="10"></circle><path d="M12 2a10 10 0 0 1 10 10h-10z"></path></svg>
+                  <span>Specialty Share</span>
+                </h3>
+                <span class="dash-card-subtitle">Revenue by procedure category</span>
+              </div>
+            </div>
+            <div class="dash-donut-wrap">
+              <div class="dash-donut-canvas-wrap">
+                <canvas id="dash-circle-chart"></canvas>
+                <div class="dash-donut-center-metric">
+                  <div class="dash-donut-center-value">100%</div>
+                  <div class="dash-donut-center-label">Specialties</div>
+                </div>
+              </div>
+              <div class="dash-donut-legend">
+                <div class="dash-donut-item">
+                  <span class="dash-donut-color donut-color-invisalign" style="background: #B51F3D;"></span>
+                  <span class="dash-donut-name">Invisalign</span>
+                  <span class="dash-donut-val">34%</span>
+                </div>
+                <div class="dash-donut-item">
+                  <span class="dash-donut-color donut-color-whitening" style="background: #e02f54;"></span>
+                  <span class="dash-donut-name">Whitening</span>
+                  <span class="dash-donut-val">26%</span>
+                </div>
+                <div class="dash-donut-item">
+                  <span class="dash-donut-color donut-color-implants" style="background: #3b82f6;"></span>
+                  <span class="dash-donut-name">Implants</span>
+                  <span class="dash-donut-val">22%</span>
+                </div>
+                <div class="dash-donut-item">
+                  <span class="dash-donut-color donut-color-hygiene" style="background: #10b981;"></span>
+                  <span class="dash-donut-name">Hygiene</span>
+                  <span class="dash-donut-val">18%</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="dash-charts-grid-duo">
+
+          <div class="dash-card">
+            <div class="dash-card-header">
+              <div class="dash-card-title-group">
+                <h3 class="dash-card-title">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary)" stroke-width="2.2"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>
+                  <span>Hourly Chair Load & Appointments Bar Chart</span>
+                </h3>
+                <span class="dash-card-subtitle">Scheduled appointments vs walk-in emergencies (8:00 AM - 6:00 PM)</span>
+              </div>
+              <span class="dash-badge dash-badge-confirmed">Peak: 11:00 AM</span>
+            </div>
+            <div class="dash-chart-container">
+              <canvas id="dash-bar-chart"></canvas>
+            </div>
+          </div>
+
+          <div class="dash-card">
+            <div class="dash-card-header">
+              <div class="dash-card-title-group">
+                <h3 class="dash-card-title">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary)" stroke-width="2.2"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>
+                  <span>Operatory Chair Status</span>
+                </h3>
+                <span class="dash-card-subtitle">Real-time dental room availability</span>
+              </div>
+              <span class="dash-sync-indicator" title="Live sensor sync"></span>
+            </div>
+
+            <div style="display: flex; flex-direction: column; gap: 12px;">
+              <div style="display: flex; align-items: center; justify-content: space-between; padding: 12px 14px; background: var(--bg-surface-alt); border-radius: var(--radius-md); border: 1px solid var(--color-border);">
+                <div>
+                  <strong style="font-size: 0.88rem; display: block;">Operatory 1 (Surgical)</strong>
+                  <span style="font-size: 0.74rem; color: var(--text-muted);">Dr. Marcus Vance • Root Canal</span>
+                </div>
+                <span class="dash-badge dash-badge-in-progress">In Treatment</span>
+              </div>
+
+              <div style="display: flex; align-items: center; justify-content: space-between; padding: 12px 14px; background: var(--bg-surface-alt); border-radius: var(--radius-md); border: 1px solid var(--color-border);">
+                <div>
+                  <strong style="font-size: 0.88rem; display: block;">Operatory 2 (Orthodontics)</strong>
+                  <span style="font-size: 0.74rem; color: var(--text-muted);">Dr. Sarah Jenkins • Invisalign Check</span>
+                </div>
+                <span class="dash-badge dash-badge-in-progress">In Treatment</span>
+              </div>
+
+              <div style="display: flex; align-items: center; justify-content: space-between; padding: 12px 14px; background: var(--bg-surface-alt); border-radius: var(--radius-md); border: 1px solid var(--color-border);">
+                <div>
+                  <strong style="font-size: 0.88rem; display: block;">Operatory 3 (Hygiene)</strong>
+                  <span style="font-size: 0.74rem; color: var(--text-muted);">Nurse Chloe • UV Sterilization</span>
+                </div>
+                <span class="dash-badge dash-badge-pending">Sanitizing (4m)</span>
+              </div>
+
+              <div style="display: flex; align-items: center; justify-content: space-between; padding: 12px 14px; background: var(--bg-surface-alt); border-radius: var(--radius-md); border: 1px solid var(--color-border);">
+                <div>
+                  <strong style="font-size: 0.88rem; display: block;">Operatory 4 (Cosmetic)</strong>
+                  <span style="font-size: 0.74rem; color: var(--text-muted);">Clean & Prepped for 11:30 AM</span>
+                </div>
+                <span class="dash-badge dash-badge-confirmed">Available</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="dash-card dash-flowchart-card">
+          <div class="dash-card-header">
+            <div class="dash-card-title-group">
+              <h3 class="dash-card-title">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary)" stroke-width="2.2"><circle cx="6" cy="6" r="3"></circle><circle cx="6" cy="18" r="3"></circle><line x1="20" y1="4" x2="8.12" y2="15.88"></line><line x1="14.47" y1="14.48" x2="20" y2="20"></line><line x1="8.12" y1="8.12" x2="12" y2="12"></line></svg>
+                <span>Operatory Clinical Workflow & Patient Journey (Interactive Flow Chart)</span>
+              </h3>
+              <span class="dash-card-subtitle">End-to-end clinical treatment stages, average stage times, and real-time patient throughput</span>
+            </div>
+            <span class="dash-badge dash-badge-confirmed">Efficiency: 96.2%</span>
+          </div>
+
+          <div class="dash-flowchart-container">
+            <div class="dash-flow-steps">
+
+              <div class="dash-flow-node" data-stage="1" title="Click to view stage details">
+                <div class="dash-flow-node-header">
+                  <span class="dash-flow-badge">Stage 1</span>
+                  <div class="dash-flow-node-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg>
+                  </div>
+                </div>
+                <div class="dash-flow-node-title">Intake & Vitals</div>
+                <div class="dash-flow-node-time"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-inline-end: 4px; vertical-align: -1px;"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>Avg 6 mins</div>
+                <div class="dash-flow-progress-bar">
+                  <div class="dash-flow-progress-fill" style="width: 100%;"></div>
+                </div>
+                <div class="dash-flow-node-meta">
+                  <span class="dash-flow-throughput">100% Pass</span>
+                  <span class="dash-flow-load">3 in Queue</span>
+                </div>
+              </div>
+
+              <div class="dash-flow-arrow">
+                <div class="dash-flow-arrow-line"></div>
+                <span class="dash-flow-arrow-tag">Triage OK</span>
+              </div>
+
+              <div class="dash-flow-node" data-stage="2" title="Click to view stage details">
+                <div class="dash-flow-node-header">
+                  <span class="dash-flow-badge">Stage 2</span>
+                  <div class="dash-flow-node-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="14.31" y1="8" x2="20.05" y2="17.94"></line><line x1="9.69" y1="8" x2="21.17" y2="8"></line><line x1="7.38" y1="12" x2="13.12" y2="2.06"></line></svg>
+                  </div>
+                </div>
+                <div class="dash-flow-node-title">3D Scans & X-Ray</div>
+                <div class="dash-flow-node-time"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-inline-end: 4px; vertical-align: -1px;"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>Avg 12 mins</div>
+                <div class="dash-flow-progress-bar">
+                  <div class="dash-flow-progress-fill" style="width: 95%;"></div>
+                </div>
+                <div class="dash-flow-node-meta">
+                  <span class="dash-flow-throughput">98% Clarity</span>
+                  <span class="dash-flow-load">2 Scanning</span>
+                </div>
+              </div>
+
+              <div class="dash-flow-arrow">
+                <div class="dash-flow-arrow-line"></div>
+                <span class="dash-flow-arrow-tag">CBCT Ready</span>
+              </div>
+
+              <div class="dash-flow-node active-stage" data-stage="3" title="Click to view stage details">
+                <div class="dash-flow-node-header">
+                  <span class="dash-flow-badge" style="background: var(--color-primary); color: #fff;">Stage 3</span>
+                  <div class="dash-flow-node-icon" style="background: var(--color-primary); color: #fff;">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2C8.5 2 6 4.5 6 8c0 3.5 1.5 7.5 2.5 11 .5 1.8 1.8 3 3.5 3s3-1.2 3.5-3c1-3.5 2.5-7.5 2.5-11 0-3.5-2.5-6-6-6z"/></svg>
+                  </div>
+                </div>
+                <div class="dash-flow-node-title">Chair Procedure</div>
+                <div class="dash-flow-node-time"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-inline-end: 4px; vertical-align: -1px;"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>Avg 42 mins</div>
+                <div class="dash-flow-progress-bar">
+                  <div class="dash-flow-progress-fill" style="width: 88%;"></div>
+                </div>
+                <div class="dash-flow-node-meta">
+                  <span class="dash-flow-throughput">4 Active</span>
+                  <span class="dash-flow-load">88% Load</span>
+                </div>
+              </div>
+
+              <div class="dash-flow-arrow">
+                <div class="dash-flow-arrow-line"></div>
+                <span class="dash-flow-arrow-tag">Post-Op</span>
+              </div>
+
+              <div class="dash-flow-node" data-stage="4" title="Click to view stage details">
+                <div class="dash-flow-node-header">
+                  <span class="dash-flow-badge">Stage 4</span>
+                  <div class="dash-flow-node-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                  </div>
+                </div>
+                <div class="dash-flow-node-title">Sterilization</div>
+                <div class="dash-flow-node-time"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-inline-end: 4px; vertical-align: -1px;"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>Avg 14 mins</div>
+                <div class="dash-flow-progress-bar">
+                  <div class="dash-flow-progress-fill" style="width: 100%;"></div>
+                </div>
+                <div class="dash-flow-node-meta">
+                  <span class="dash-flow-throughput">100% Sterile</span>
+                  <span class="dash-flow-load">Auto Clave</span>
+                </div>
+              </div>
+
+              <div class="dash-flow-arrow">
+                <div class="dash-flow-arrow-line"></div>
+                <span class="dash-flow-arrow-tag">Discharge</span>
+              </div>
+
+              <div class="dash-flow-node" data-stage="5" title="Click to view stage details">
+                <div class="dash-flow-node-header">
+                  <span class="dash-flow-badge">Stage 5</span>
+                  <div class="dash-flow-node-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect><line x1="1" y1="10" x2="23" y2="10"></line></svg>
+                  </div>
+                </div>
+                <div class="dash-flow-node-title">Checkout & Recall</div>
+                <div class="dash-flow-node-time"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-inline-end: 4px; vertical-align: -1px;"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>Avg 8 mins</div>
+                <div class="dash-flow-progress-bar">
+                  <div class="dash-flow-progress-fill" style="width: 92%;"></div>
+                </div>
+                <div class="dash-flow-node-meta">
+                  <span class="dash-flow-throughput">94% Rebooked</span>
+                  <span class="dash-flow-load">Receipt Done</span>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+      </section>
+
+      <section class="dash-tab-panel" id="tab-appointments" role="tabpanel" aria-labelledby="nav-btn-appointments">
+
+        <div class="dash-section-header">
+          <div class="dash-section-title-wrap">
+            <h2>Appointments & <span class="highlight-champagne">Operatory Schedule</span></h2>
+            <p class="dash-section-desc">Manage patient bookings, chair allocations, and clinical time slots.</p>
+          </div>
+          <div class="dash-section-actions">
+            <button type="button" class="dash-btn dash-btn-primary" id="dash-book-appointment-btn">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+              <span>+ Book Appointment</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="dash-card" style="padding: 16px 20px; margin-bottom: 24px;">
+          <div style="display: flex; gap: 14px; flex-wrap: wrap; align-items: center; justify-content: space-between;">
+            <div style="display: flex; gap: 12px; flex-wrap: wrap; align-items: center;">
+              <input type="text" class="dash-search-input" id="dash-apt-search" placeholder="Filter patient or service..." style="width: 240px;">
+              <select class="dash-search-input" id="dash-apt-doctor-filter" style="width: 180px; padding-inline: 12px;">
+                <option value="all">All Doctors</option>
+                <option value="Dr. Sarah Jenkins">Dr. Sarah Jenkins</option>
+                <option value="Dr. Marcus Vance">Dr. Marcus Vance</option>
+                <option value="Dr. Elena Rostova">Dr. Elena Rostova</option>
+              </select>
+              <select class="dash-search-input" id="dash-apt-status-filter" style="width: 160px; padding-inline: 12px;">
+                <option value="all">All Statuses</option>
+                <option value="Confirmed">Confirmed</option>
+                <option value="In Progress">In Progress</option>
+                <option value="Pending">Pending</option>
+              </select>
+            </div>
+            <div style="font-size: 0.82rem; color: var(--text-muted);">
+              Showing <strong id="dash-apt-count" style="color: var(--text-main);">6</strong> appointments
+            </div>
+          </div>
+        </div>
+
+        <div class="dash-table-wrap">
+          <table class="dash-table" id="dash-appointments-table">
+            <thead>
+              <tr>
+                <th>Appt ID</th>
+                <th>Patient</th>
+                <th>Service & Specialty</th>
+                <th>Doctor</th>
+                <th>Date & Time</th>
+                <th>Room / Operatory</th>
+                <th>Status</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="dash-appointments-tbody">
+            </tbody>
+          </table>
+        </div>
+
+      </section>
+
+      <section class="dash-tab-panel" id="tab-patients" role="tabpanel" aria-labelledby="nav-btn-patients">
+
+        <div class="dash-section-header">
+          <div class="dash-section-title-wrap">
+            <h2>Patients Directory & <span class="highlight-champagne">Dental Health Records</span></h2>
+            <p class="dash-section-desc">Access 1,420 active patient profiles, periodontal charts, and medical alerts.</p>
+          </div>
+          <div class="dash-section-actions">
+            <button type="button" class="dash-btn dash-btn-primary" id="dash-new-patient-btn">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="8.5" cy="7" r="4"></circle><line x1="20" y1="8" x2="20" y2="14"></line><line x1="23" y1="11" x2="17" y2="11"></line></svg>
+              <span>+ Register Patient</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="dash-card" style="padding: 16px 20px; margin-bottom: 24px;">
+          <div style="display: flex; gap: 14px; flex-wrap: wrap; align-items: center; justify-content: space-between;">
+            <input type="text" class="dash-search-input" id="dash-patient-search" placeholder="Search by name, phone, or MRN #..." style="width: 280px;">
+            <div class="dash-filter-pill-group">
+              <button type="button" class="dash-filter-pill active" data-patient-cat="all">All Patients</button>
+              <button type="button" class="dash-filter-pill" data-patient-cat="risk">Medical Alert</button>
+              <button type="button" class="dash-filter-pill" data-patient-cat="ortho">Orthodontics</button>
+              <button type="button" class="dash-filter-pill" data-patient-cat="implant">Implants</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="dash-table-wrap">
+          <table class="dash-table" id="dash-patients-table">
+            <thead>
+              <tr>
+                <th>MRN #</th>
+                <th>Patient Profile</th>
+                <th>Contact</th>
+                <th>Blood & Alerts</th>
+                <th>Last Visit</th>
+                <th>Next Scheduled</th>
+                <th>Primary Doctor</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="dash-patients-tbody">
+            </tbody>
+          </table>
+        </div>
+
+      </section>
+
+      <section class="dash-tab-panel" id="tab-doctors" role="tabpanel" aria-labelledby="nav-btn-doctors">
+
+        <div class="dash-section-header">
+          <div class="dash-section-title-wrap">
+            <h2>Doctors & <span class="highlight-champagne">Clinical Staff Directory</span></h2>
+            <p class="dash-section-desc">Certified dental surgeons, orthodontists, periodontists, and dental hygienists on duty.</p>
+          </div>
+          <div class="dash-section-actions">
+            <span class="dash-badge dash-badge-confirmed">8 Providers On Duty</span>
+          </div>
+        </div>
+
+        <div class="dash-doctors-grid">
+
+          <div class="dash-doc-card">
+            <div class="dash-doc-banner">
+              <div class="dash-doc-avatar-wrap">
+                <img src="assets/images/doctor_sarah.jpg" alt="Dr. Sarah Jenkins" class="dash-doc-avatar">
+              </div>
+            </div>
+            <div class="dash-doc-content">
+              <h3 class="dash-doc-name">Dr. Sarah Jenkins, DDS</h3>
+              <span class="dash-doc-specialty">Lead Orthodontist & Invisalign Specialist</span>
+              <div class="dash-doc-stats-strip">
+                <div>
+                  <div class="dash-doc-stat-num">1,240</div>
+                  <div class="dash-doc-stat-lbl">Patients</div>
+                </div>
+                <div>
+                  <div class="dash-doc-stat-num">4.98 <svg width="12" height="12" viewBox="0 0 24 24" fill="#f59e0b" stroke="#f59e0b" stroke-width="1" style="vertical-align: -1px;"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
+                  <div class="dash-doc-stat-lbl">Rating</div>
+                </div>
+                <div>
+                  <div class="dash-doc-stat-num">12 Yrs</div>
+                  <div class="dash-doc-stat-lbl">Experience</div>
+                </div>
+              </div>
+              <div class="dash-doc-schedule">
+                <span><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-inline-end: 4px; vertical-align: -2px;"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>Operatory 2 • Shift: 08:30 AM - 05:00 PM</span>
+              </div>
+              <div class="dash-doc-actions">
+                <button type="button" class="dash-btn dash-btn-outline dash-btn-sm" style="flex: 1;" onclick="openDoctorSchedule('Dr. Sarah Jenkins')">View Schedule</button>
+                <button type="button" class="dash-btn dash-btn-primary dash-btn-sm" onclick="quickBookDoctor('Dr. Sarah Jenkins')">Book Slot</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="dash-doc-card">
+            <div class="dash-doc-banner">
+              <div class="dash-doc-avatar-wrap">
+                <img src="assets/images/doctor_marcus.jpg" alt="Dr. Marcus Vance" class="dash-doc-avatar">
+              </div>
+            </div>
+            <div class="dash-doc-content">
+              <h3 class="dash-doc-name">Dr. Marcus Vance, DMD</h3>
+              <span class="dash-doc-specialty">Oral & Maxillofacial Implant Surgeon</span>
+              <div class="dash-doc-stats-strip">
+                <div>
+                  <div class="dash-doc-stat-num">980</div>
+                  <div class="dash-doc-stat-lbl">Surgeries</div>
+                </div>
+                <div>
+                  <div class="dash-doc-stat-num">4.95 <svg width="12" height="12" viewBox="0 0 24 24" fill="#f59e0b" stroke="#f59e0b" stroke-width="1" style="vertical-align: -1px;"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
+                  <div class="dash-doc-stat-lbl">Rating</div>
+                </div>
+                <div>
+                  <div class="dash-doc-stat-num">15 Yrs</div>
+                  <div class="dash-doc-stat-lbl">Experience</div>
+                </div>
+              </div>
+              <div class="dash-doc-schedule">
+                <span><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-inline-end: 4px; vertical-align: -2px;"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>Operatory 1 (Surgical) • Shift: 09:00 AM - 04:30 PM</span>
+              </div>
+              <div class="dash-doc-actions">
+                <button type="button" class="dash-btn dash-btn-outline dash-btn-sm" style="flex: 1;" onclick="openDoctorSchedule('Dr. Marcus Vance')">View Schedule</button>
+                <button type="button" class="dash-btn dash-btn-primary dash-btn-sm" onclick="quickBookDoctor('Dr. Marcus Vance')">Book Slot</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="dash-doc-card">
+            <div class="dash-doc-banner">
+              <div class="dash-doc-avatar-wrap">
+                <img src="assets/images/patient_sophia.jpg" alt="Dr. Elena Rostova" class="dash-doc-avatar">
+              </div>
+            </div>
+            <div class="dash-doc-content">
+              <h3 class="dash-doc-name">Dr. Elena Rostova, DDS</h3>
+              <span class="dash-doc-specialty">Pediatric Dentist & Endodontist</span>
+              <div class="dash-doc-stats-strip">
+                <div>
+                  <div class="dash-doc-stat-num">820</div>
+                  <div class="dash-doc-stat-lbl">Patients</div>
+                </div>
+                <div>
+                  <div class="dash-doc-stat-num">4.99 <svg width="12" height="12" viewBox="0 0 24 24" fill="#f59e0b" stroke="#f59e0b" stroke-width="1" style="vertical-align: -1px;"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
+                  <div class="dash-doc-stat-lbl">Rating</div>
+                </div>
+                <div>
+                  <div class="dash-doc-stat-num">9 Yrs</div>
+                  <div class="dash-doc-stat-lbl">Experience</div>
+                </div>
+              </div>
+              <div class="dash-doc-schedule">
+                <span><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-inline-end: 4px; vertical-align: -2px;"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>Operatory 4 • Shift: 10:00 AM - 06:00 PM</span>
+              </div>
+              <div class="dash-doc-actions">
+                <button type="button" class="dash-btn dash-btn-outline dash-btn-sm" style="flex: 1;" onclick="openDoctorSchedule('Dr. Elena Rostova')">View Schedule</button>
+                <button type="button" class="dash-btn dash-btn-primary dash-btn-sm" onclick="quickBookDoctor('Dr. Elena Rostova')">Book Slot</button>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="dash-card">
+          <div class="dash-card-header">
+            <h3 class="dash-card-title">Weekly Clinical Roster Matrix</h3>
+            <span class="dash-badge dash-badge-confirmed">Week 43 • Oct 2026</span>
+          </div>
+          <div class="dash-table-wrap">
+            <table class="dash-table">
+              <thead>
+                <tr>
+                  <th>Provider</th>
+                  <th>Role</th>
+                  <th>Mon</th>
+                  <th>Tue</th>
+                  <th>Wed</th>
+                  <th>Thu</th>
+                  <th>Fri</th>
+                  <th>Sat</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Dr. Sarah Jenkins</strong></td>
+                  <td>Orthodontist</td>
+                  <td><span class="dash-badge dash-badge-confirmed">08:30 - 17:00</span></td>
+                  <td><span class="dash-badge dash-badge-confirmed">08:30 - 17:00</span></td>
+                  <td><span class="dash-badge dash-badge-confirmed">08:30 - 17:00</span></td>
+                  <td><span class="dash-badge dash-badge-confirmed">08:30 - 17:00</span></td>
+                  <td><span class="dash-badge dash-badge-confirmed">08:30 - 14:00</span></td>
+                  <td><span class="dash-badge dash-badge-pending">On Call</span></td>
+                </tr>
+                <tr>
+                  <td><strong>Dr. Marcus Vance</strong></td>
+                  <td>Oral Surgeon</td>
+                  <td><span class="dash-badge dash-badge-confirmed">09:00 - 16:30</span></td>
+                  <td><span class="dash-badge dash-badge-confirmed">09:00 - 16:30</span></td>
+                  <td><span class="dash-badge dash-badge-in-progress">Surgery Day</span></td>
+                  <td><span class="dash-badge dash-badge-confirmed">09:00 - 16:30</span></td>
+                  <td><span class="dash-badge dash-badge-confirmed">09:00 - 15:00</span></td>
+                  <td><span style="color: var(--text-muted); font-size: 0.8rem;">Off Duty</span></td>
+                </tr>
+                <tr>
+                  <td><strong>Dr. Elena Rostova</strong></td>
+                  <td>Pediatric & Endo</td>
+                  <td><span class="dash-badge dash-badge-confirmed">10:00 - 18:00</span></td>
+                  <td><span class="dash-badge dash-badge-confirmed">10:00 - 18:00</span></td>
+                  <td><span class="dash-badge dash-badge-confirmed">10:00 - 18:00</span></td>
+                  <td><span style="color: var(--text-muted); font-size: 0.8rem;">Off Duty</span></td>
+                  <td><span class="dash-badge dash-badge-confirmed">10:00 - 18:00</span></td>
+                  <td><span class="dash-badge dash-badge-confirmed">09:00 - 13:00</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+      </section>
+
+      <section class="dash-tab-panel" id="tab-treatments" role="tabpanel" aria-labelledby="nav-btn-treatments">
+
+        <div class="dash-section-header">
+          <div class="dash-section-title-wrap">
+            <h2>Dental Treatments & <span class="highlight-champagne">Clinical Protocols</span></h2>
+            <p class="dash-section-desc">Standard operating procedures, pricing, duration, and patient co-pay calculator.</p>
+          </div>
+        </div>
+
+        <div class="dash-calculator-card">
+          <div class="dash-card-header" style="margin-bottom: 16px;">
+            <div class="dash-card-title-group">
+              <h3 class="dash-card-title">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary)" stroke-width="2.2"><rect x="4" y="2" width="16" height="20" rx="2"></rect><line x1="8" y1="6" x2="16" y2="6"></line><line x1="16" y1="14" x2="16" y2="18"></line><path d="M16 10h.01"></path><path d="M12 10h.01"></path><path d="M8 10h.01"></path><path d="M12 14h.01"></path><path d="M8 14h.01"></path><path d="M12 18h.01"></path><path d="M8 18h.01"></path></svg>
+                <span>Interactive Dental Cost & Insurance Co-Pay Estimator</span>
+              </h3>
+              <span class="dash-card-subtitle">Real-time insurance coverage calculator for patient quotes</span>
+            </div>
+          </div>
+
+          <div class="dash-calc-grid">
+            <div>
+              <div class="form-group">
+                <label class="form-label" for="calc-procedure-select">Select Dental Procedure</label>
+                <select class="form-control" id="calc-procedure-select">
+                  <option value="1800">Invisalign Clear Aligners (Complete) — $1,800</option>
+                  <option value="2400">Titanium Dental Implant & Abutment — $2,400</option>
+                  <option value="180">Ultrasonic Hygiene Scaling & Polishing — $180</option>
+                  <option value="450">In-Office Laser Teeth Whitening — $450</option>
+                  <option value="950">Endodontic Root Canal Therapy — $950</option>
+                  <option value="1200">Porcelain Aesthetic Veneer (Per Tooth) — $1,200</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="calc-insurance-select">Select Patient Insurance Carrier</label>
+                <select class="form-control" id="calc-insurance-select">
+                  <option value="0.80">Delta Dental Premier (80% Major / 100% Preventive)</option>
+                  <option value="0.75">MetLife Dental PDP Plus (75% Coverage)</option>
+                  <option value="0.70">Cigna Dental Network (70% Coverage)</option>
+                  <option value="0.00">Self-Pay / Private Cash (0% Insurance Coverage)</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">Optional Clinical Add-ons</label>
+                <div style="display: flex; flex-direction: column; gap: 8px;">
+                  <label style="display: flex; align-items: center; gap: 8px; font-size: 0.85rem; cursor: pointer;">
+                    <input type="checkbox" id="calc-addon-scan" value="120" checked>
+                    <span>High-Resolution 3D CBCT Scan (+$120)</span>
+                  </label>
+                  <label style="display: flex; align-items: center; gap: 8px; font-size: 0.85rem; cursor: pointer;">
+                    <input type="checkbox" id="calc-addon-sedation" value="85">
+                    <span>Nitrous Oxide Conscious Sedation (+$85)</span>
+                  </label>
+                </div>
+              </div>
+            </div>
+
+            <div class="dash-calc-output-box">
+              <div>
+                <h4 style="font-family: var(--font-heading); font-size: 1.1rem; margin-bottom: 14px;">Estimated Financial Breakdown</h4>
+                <div class="dash-calc-row">
+                  <span>Gross Procedure Fee:</span>
+                  <strong id="calc-out-gross">$1,920.00</strong>
+                </div>
+                <div class="dash-calc-row">
+                  <span>Estimated Insurance Coverage:</span>
+                  <strong style="color: #10b981;" id="calc-out-ins">-$1,440.00</strong>
+                </div>
+                <div class="dash-calc-row">
+                  <span>In-Network Copay Discount:</span>
+                  <strong style="color: #3b82f6;">-$50.00</strong>
+                </div>
+                <div class="dash-calc-row total">
+                  <span>Patient Estimated Out-of-Pocket:</span>
+                  <span id="calc-out-patient">$430.00</span>
+                </div>
+              </div>
+
+              <button type="button" class="dash-btn dash-btn-primary" style="margin-top: 18px; width: 100%; justify-content: center;" onclick="generatePatientQuote()">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 6 2 18 2 18 9"></polyline><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path><rect x="6" y="14" width="12" height="8"></rect></svg>
+                <span>Print Official Dental Treatment Quote</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="dash-treatments-grid">
+
+          <div class="dash-treatment-card">
+            <div class="dash-treatment-header">
+              <span class="dash-treatment-cat">Orthodontics</span>
+              <span class="dash-treatment-price">$1,800</span>
+            </div>
+            <h3 class="dash-treatment-title">Invisalign® Clear Aligners</h3>
+            <p class="dash-treatment-desc">Custom SmartTrack clear aligners for teeth straightening without traditional metal brackets.</p>
+            <div class="dash-treatment-specs">
+              <div class="dash-treatment-spec-item">
+                <span>Duration:</span>
+                <span class="dash-treatment-spec-val">30 - 45 min checkups</span>
+              </div>
+              <div class="dash-treatment-spec-item">
+                <span>Treatment Span:</span>
+                <span class="dash-treatment-spec-val">6 - 14 months</span>
+              </div>
+              <div class="dash-treatment-spec-item">
+                <span>Success Rate:</span>
+                <span class="dash-treatment-spec-val" style="color: #10b981;">99.4%</span>
+              </div>
+            </div>
+            <button type="button" class="dash-btn dash-btn-outline dash-btn-sm" onclick="quickBookTreatment('Invisalign Checkup')">Book Protocol</button>
+          </div>
+
+          <div class="dash-treatment-card">
+            <div class="dash-treatment-header">
+              <span class="dash-treatment-cat">Surgical</span>
+              <span class="dash-treatment-price">$2,400</span>
+            </div>
+            <h3 class="dash-treatment-title">Dental Implants</h3>
+            <p class="dash-treatment-desc">Grade 5 biocompatible titanium fixtures replacing tooth root with porcelain crown.</p>
+            <div class="dash-treatment-specs">
+              <div class="dash-treatment-spec-item">
+                <span>Duration:</span>
+                <span class="dash-treatment-spec-val">60 - 90 min</span>
+              </div>
+              <div class="dash-treatment-spec-item">
+                <span>Osseointegration:</span>
+                <span class="dash-treatment-spec-val">8 - 12 weeks</span>
+              </div>
+              <div class="dash-treatment-spec-item">
+                <span>Success Rate:</span>
+                <span class="dash-treatment-spec-val" style="color: #10b981;">98.8%</span>
+              </div>
+            </div>
+            <button type="button" class="dash-btn dash-btn-outline dash-btn-sm" onclick="quickBookTreatment('Dental Implant Surgery')">Book Protocol</button>
+          </div>
+
+          <div class="dash-treatment-card">
+            <div class="dash-treatment-header">
+              <span class="dash-treatment-cat">Preventive</span>
+              <span class="dash-treatment-price">$180</span>
+            </div>
+            <h3 class="dash-treatment-title">Ultrasonic Scaling & Polish</h3>
+            <p class="dash-treatment-desc">High-frequency ultrasonic plaque and tartar removal with air polishing and remineralization.</p>
+            <div class="dash-treatment-specs">
+              <div class="dash-treatment-spec-item">
+                <span>Duration:</span>
+                <span class="dash-treatment-spec-val">40 min</span>
+              </div>
+              <div class="dash-treatment-spec-item">
+                <span>Recovery:</span>
+                <span class="dash-treatment-spec-val">Immediate</span>
+              </div>
+              <div class="dash-treatment-spec-item">
+                <span>Frequency:</span>
+                <span class="dash-treatment-spec-val">Every 6 Months</span>
+              </div>
+            </div>
+            <button type="button" class="dash-btn dash-btn-outline dash-btn-sm" onclick="quickBookTreatment('Ultrasonic Hygiene')">Book Protocol</button>
+          </div>
+
+          <div class="dash-treatment-card">
+            <div class="dash-treatment-header">
+              <span class="dash-treatment-cat">Cosmetic</span>
+              <span class="dash-treatment-price">$450</span>
+            </div>
+            <h3 class="dash-treatment-title">Laser Teeth Whitening</h3>
+            <p class="dash-treatment-desc">In-office 450nm cold blue laser activation lifting shade up to 8 shades in a single session.</p>
+            <div class="dash-treatment-specs">
+              <div class="dash-treatment-spec-item">
+                <span>Duration:</span>
+                <span class="dash-treatment-spec-val">50 min</span>
+              </div>
+              <div class="dash-treatment-spec-item">
+                <span>Longevity:</span>
+                <span class="dash-treatment-spec-val">12 - 24 months</span>
+              </div>
+              <div class="dash-treatment-spec-item">
+                <span>Sensitivity:</span>
+                <span class="dash-treatment-spec-val">Ultra-Low</span>
+              </div>
+            </div>
+            <button type="button" class="dash-btn dash-btn-outline dash-btn-sm" onclick="quickBookTreatment('Laser Whitening')">Book Protocol</button>
+          </div>
+
+        </div>
+
+      </section>
+
+      <section class="dash-tab-panel" id="tab-billing" role="tabpanel" aria-labelledby="nav-btn-billing">
+
+        <div class="dash-section-header">
+          <div class="dash-section-title-wrap">
+            <h2>Financial Statements, Invoices & <span class="highlight-champagne">Insurance Claims</span></h2>
+            <p class="dash-section-desc">Track practice cash flow, electronic claims reimbursement, and itemized patient receipts.</p>
+          </div>
+          <div class="dash-section-actions">
+            <button type="button" class="dash-btn dash-btn-primary" id="dash-create-invoice-btn">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+              <span>+ Create Invoice</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="dash-billing-summary">
+          <div class="dash-kpi-card">
+            <span class="dash-kpi-label">Gross Invoiced (Oct)</span>
+            <div class="dash-kpi-value" style="color: var(--color-primary);">$148,250</div>
+            <div class="dash-kpi-bottom">
+              <span class="dash-trend-badge up">↑ 92%</span>
+              <span>of $160k monthly goal</span>
+            </div>
+          </div>
+          <div class="dash-kpi-card">
+            <span class="dash-kpi-label">Collected Payments</span>
+            <div class="dash-kpi-value" style="color: #10b981;">$134,800</div>
+            <div class="dash-kpi-bottom">
+              <span class="dash-trend-badge up">90.9%</span>
+              <span>Collection rate</span>
+            </div>
+          </div>
+          <div class="dash-kpi-card">
+            <span class="dash-kpi-label">Pending Insurance</span>
+            <div class="dash-kpi-value" style="color: #f59e0b;">$11,450</div>
+            <div class="dash-kpi-bottom">
+              <span>18 Claims awaiting audit</span>
+            </div>
+          </div>
+          <div class="dash-kpi-card">
+            <span class="dash-kpi-label">Patient Balances</span>
+            <div class="dash-kpi-value" style="color: #3b82f6;">$2,000</div>
+            <div class="dash-kpi-bottom">
+              <span>96.4% paid on time</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="dash-card" style="padding: 0; overflow: hidden; margin-bottom: 28px;">
+          <div class="dash-card-header" style="padding: 20px 24px; border-bottom: 1px solid var(--color-border); margin-bottom: 0;">
+            <h3 class="dash-card-title">Recent Invoices & Transactions</h3>
+            <div style="display: flex; gap: 10px;">
+              <input type="text" class="dash-search-input" id="dash-invoice-search" placeholder="Search invoice or patient..." style="width: 220px;">
+            </div>
+          </div>
+
+          <div class="dash-table-wrap" style="border: none; border-radius: 0;">
+            <table class="dash-table" id="dash-invoices-table">
+              <thead>
+                <tr>
+                  <th>Invoice #</th>
+                  <th>Patient Name</th>
+                  <th>Procedure</th>
+                  <th>Date</th>
+                  <th>Payment Method</th>
+                  <th>Amount</th>
+                  <th>Status</th>
+                  <th>Receipt</th>
+                </tr>
+              </thead>
+              <tbody id="dash-invoices-tbody">
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="dash-card">
+          <div class="dash-card-header">
+            <div class="dash-card-title-group">
+              <h3 class="dash-card-title">Electronic Insurance Claims Reconciliation</h3>
+              <span class="dash-card-subtitle">Real-time claim turnaround time and clean approval rates</span>
+            </div>
+            <span class="dash-badge dash-badge-confirmed">96.8% Clean Claim Rate</span>
+          </div>
+
+          <div class="dash-payer-grid">
+            <div class="dash-payer-card">
+              <div class="dash-payer-name">Delta Dental Premier</div>
+              <div class="dash-payer-claim-num">84 claims • $42,100 submitted</div>
+              <div class="dash-payer-rate-bar">
+                <div class="dash-payer-rate-fill" style="width: 98%;"></div>
+              </div>
+              <div class="dash-payer-rate-txt">
+                <span>98% Approval</span>
+                <span>4.2 Days Turnaround</span>
+              </div>
+            </div>
+
+            <div class="dash-payer-card">
+              <div class="dash-payer-name">MetLife PDP Plus</div>
+              <div class="dash-payer-claim-num">52 claims • $28,600 submitted</div>
+              <div class="dash-payer-rate-bar">
+                <div class="dash-payer-rate-fill" style="width: 96%;"></div>
+              </div>
+              <div class="dash-payer-rate-txt">
+                <span>96% Approval</span>
+                <span>5.1 Days Turnaround</span>
+              </div>
+            </div>
+
+            <div class="dash-payer-card">
+              <div class="dash-payer-name">Cigna Dental</div>
+              <div class="dash-payer-claim-num">38 claims • $19,400 submitted</div>
+              <div class="dash-payer-rate-bar">
+                <div class="dash-payer-rate-fill" style="width: 94%;"></div>
+              </div>
+              <div class="dash-payer-rate-txt">
+                <span>94% Approval</span>
+                <span>6.0 Days Turnaround</span>
+              </div>
+            </div>
+
+            <div class="dash-payer-card">
+              <div class="dash-payer-name">Guardian Dental</div>
+              <div class="dash-payer-claim-num">24 claims • $12,150 submitted</div>
+              <div class="dash-payer-rate-bar">
+                <div class="dash-payer-rate-fill" style="width: 97%;"></div>
+              </div>
+              <div class="dash-payer-rate-txt">
+                <span>97% Approval</span>
+                <span>4.8 Days Turnaround</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </section>
+
+    </main>
+  </div>
+
+  <div class="dash-modal-backdrop" id="modal-book-apt" role="dialog" aria-modal="true" aria-labelledby="modal-book-title">
+    <div class="dash-modal">
+      <div class="dash-modal-header">
+        <h3 class="dash-modal-title" id="modal-book-title">Schedule Dental Appointment</h3>
+        <button type="button" class="dash-modal-close" data-close-modal="modal-book-apt" aria-label="Close modal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg></button>
+      </div>
+      <form id="dash-new-apt-form">
+        <div class="dash-modal-body">
+          <div class="form-group">
+            <label class="form-label" for="apt-patient-name">Patient Full Name</label>
+            <input type="text" class="form-control" id="apt-patient-name" name="patient_name" placeholder="e.g. David Miller" required>
+          </div>
+
+          <div class="form-grid-2">
+            <div class="form-group">
+              <label class="form-label" for="apt-patient-phone">Contact Phone</label>
+              <input type="tel" class="form-control" id="apt-patient-phone" name="patient_phone" placeholder="+1 (555) 019-2834" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="apt-service">Clinical Procedure</label>
+              <select class="form-control" id="apt-service" name="service" required>
+                <option value="Invisalign Checkup">Invisalign Checkup</option>
+                <option value="Professional Hygiene Cleaning">Professional Hygiene Cleaning</option>
+                <option value="Dental Implant Consultation">Dental Implant Consultation</option>
+                <option value="Laser Teeth Whitening">Laser Teeth Whitening</option>
+                <option value="Root Canal Treatment">Root Canal Treatment</option>
+                <option value="Composite Tooth Filling">Composite Tooth Filling</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-grid-2">
+            <div class="form-group">
+              <label class="form-label" for="apt-doctor">Assigned Doctor</label>
+              <select class="form-control" id="apt-doctor" name="doctor" required>
+                <option value="Dr. Sarah Jenkins">Dr. Sarah Jenkins (Orthodontist)</option>
+                <option value="Dr. Marcus Vance">Dr. Marcus Vance (Oral Surgeon)</option>
+                <option value="Dr. Elena Rostova">Dr. Elena Rostova (Pediatric & Endo)</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="apt-room">Operatory Chair</label>
+              <select class="form-control" id="apt-room" name="room" required>
+                <option value="Operatory 2 (Ortho)">Operatory 2 (Ortho)</option>
+                <option value="Operatory 1 (Surgical)">Operatory 1 (Surgical)</option>
+                <option value="Operatory 3 (Hygiene)">Operatory 3 (Hygiene)</option>
+                <option value="Operatory 4 (Cosmetic)">Operatory 4 (Cosmetic)</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-grid-2">
+            <div class="form-group">
+              <label class="form-label" for="apt-date">Date</label>
+              <input type="date" class="form-control" id="apt-date" name="date" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="apt-time">Time Slot</label>
+              <select class="form-control" id="apt-time" name="time" required>
+                <option value="09:00 AM">09:00 AM</option>
+                <option value="10:30 AM">10:30 AM</option>
+                <option value="11:45 AM">11:45 AM</option>
+                <option value="02:00 PM">02:00 PM</option>
+                <option value="03:30 PM">03:30 PM</option>
+                <option value="04:45 PM">04:45 PM</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="apt-notes">Clinical Notes / Chief Complaint</label>
+            <textarea class="form-control" id="apt-notes" rows="2" placeholder="e.g. Tooth sensitivity upper right molar; routine aligner tray #8 replacement..."></textarea>
+          </div>
+        </div>
+        <div class="dash-modal-footer">
+          <button type="button" class="dash-btn dash-btn-outline" data-close-modal="modal-book-apt">Cancel</button>
+          <button type="submit" class="dash-btn dash-btn-primary">Confirm Appointment</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div class="dash-modal-backdrop" id="modal-patient-chart" role="dialog" aria-modal="true" aria-labelledby="modal-chart-title">
+    <div class="dash-modal" style="max-width: 720px;">
+      <div class="dash-modal-header">
+        <div>
+          <h3 class="dash-modal-title" id="modal-chart-title">Patient Dental Record & Digital Odontogram</h3>
+          <span style="font-size: 0.8rem; color: var(--text-muted);" id="modal-chart-patient-subtitle">MRN #OR-2026-8491 • Eleanor Vance</span>
+        </div>
+        <button type="button" class="dash-modal-close" data-close-modal="modal-patient-chart" aria-label="Close modal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg></button>
+      </div>
+      <div class="dash-modal-body">
+
+        <div style="display: flex; gap: 16px; align-items: center; padding: 14px; background: var(--bg-surface-alt); border-radius: var(--radius-md); margin-bottom: 20px; border: 1px solid var(--color-border);">
+          <img src="assets/images/patient_sophia.jpg" alt="Patient" style="width: 50px; height: 50px; border-radius: 50%; object-fit: cover; border: 2px solid var(--color-primary);" id="modal-chart-avatar">
+          <div style="flex: 1;">
+            <div style="display: flex; align-items: center; gap: 8px;">
+              <strong style="font-size: 1.05rem;" id="modal-chart-name">Eleanor Vance</strong>
+              <span class="dash-badge dash-badge-confirmed" id="modal-chart-badge">Active Treatment</span>
+            </div>
+            <div style="font-size: 0.78rem; color: var(--text-muted);" id="modal-chart-details">Age: 29 • Blood: O+ • Insurance: Delta Dental Premier</div>
+          </div>
+          <div style="text-align: right;">
+            <span style="font-size: 0.72rem; color: var(--text-muted); display: block;">Periodontal Score</span>
+            <strong style="color: #10b981; font-size: 1.15rem;">PSR 1 / 4</strong>
+          </div>
+        </div>
+
+        <div class="dash-tooth-chart-wrap">
+          <div class="dash-tooth-arch-label">Maxillary Arch (Upper Dentition: Teeth #1 - #16)</div>
+          <div class="dash-tooth-arch">
+            <div class="dash-tooth-unit" title="Tooth #1 (3rd Molar)">1</div>
+            <div class="dash-tooth-unit" title="Tooth #2 (2nd Molar)">2</div>
+            <div class="dash-tooth-unit restored" title="Tooth #3 (1st Molar) - Porcelain Crown">3</div>
+            <div class="dash-tooth-unit" title="Tooth #4 (2nd Premolar)">4</div>
+            <div class="dash-tooth-unit" title="Tooth #5 (1st Premolar)">5</div>
+            <div class="dash-tooth-unit" title="Tooth #6 (Canine)">6</div>
+            <div class="dash-tooth-unit" title="Tooth #7 (Lateral)">7</div>
+            <div class="dash-tooth-unit" title="Tooth #8 (Central)">8</div>
+            <div class="dash-tooth-unit" title="Tooth #9 (Central)">9</div>
+            <div class="dash-tooth-unit" title="Tooth #10 (Lateral)">10</div>
+            <div class="dash-tooth-unit" title="Tooth #11 (Canine)">11</div>
+            <div class="dash-tooth-unit" title="Tooth #12 (1st Premolar)">12</div>
+            <div class="dash-tooth-unit" title="Tooth #13 (2nd Premolar)">13</div>
+            <div class="dash-tooth-unit implant" title="Tooth #14 (1st Molar) - Nobel Biocare Implant">14</div>
+            <div class="dash-tooth-unit" title="Tooth #15 (2nd Molar)">15</div>
+            <div class="dash-tooth-unit" title="Tooth #16 (3rd Molar)">16</div>
+          </div>
+
+          <div class="dash-tooth-arch-label" style="margin-top: 14px;">Mandibular Arch (Lower Dentition: Teeth #17 - #32)</div>
+          <div class="dash-tooth-arch">
+            <div class="dash-tooth-unit" title="Tooth #17">17</div>
+            <div class="dash-tooth-unit" title="Tooth #18">18</div>
+            <div class="dash-tooth-unit restored" title="Tooth #19 (Composite Restored)">19</div>
+            <div class="dash-tooth-unit" title="Tooth #20">20</div>
+            <div class="dash-tooth-unit" title="Tooth #21">21</div>
+            <div class="dash-tooth-unit" title="Tooth #22">22</div>
+            <div class="dash-tooth-unit" title="Tooth #23">23</div>
+            <div class="dash-tooth-unit" title="Tooth #24">24</div>
+            <div class="dash-tooth-unit" title="Tooth #25">25</div>
+            <div class="dash-tooth-unit" title="Tooth #26">26</div>
+            <div class="dash-tooth-unit" title="Tooth #27">27</div>
+            <div class="dash-tooth-unit" title="Tooth #28">28</div>
+            <div class="dash-tooth-unit" title="Tooth #29">29</div>
+            <div class="dash-tooth-unit restored" title="Tooth #30 (Composite)">30</div>
+            <div class="dash-tooth-unit" title="Tooth #31">31</div>
+            <div class="dash-tooth-unit" title="Tooth #32">32</div>
+          </div>
+
+          <div style="display: flex; justify-content: center; gap: 16px; font-size: 0.72rem; margin-top: 12px; color: var(--text-muted);">
+            <span><strong style="color: #3b82f6;">■</strong> Restored / Crown</span>
+            <span><strong style="color: #10b981;">■</strong> Implant</span>
+            <span><strong style="color: #ef4444;">■</strong> Caries / Watch</span>
+            <span><strong style="color: var(--text-muted);">■</strong> Healthy</span>
+          </div>
+        </div>
+
+        <div class="form-grid-2">
+          <div style="background: var(--bg-surface-alt); padding: 14px; border-radius: var(--radius-md); border: 1px solid var(--color-border);">
+            <strong style="font-size: 0.82rem; color: #ef4444; display: flex; align-items: center; gap: 6px; margin-bottom: 4px;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>Medical Allergies & Alerts</strong>
+            <p style="font-size: 0.78rem; color: var(--text-main);" id="modal-chart-allergies">No known drug allergies. Mild latex sensitivity noted; use vinyl/nitrile gloves during treatment.</p>
+          </div>
+          <div style="background: var(--bg-surface-alt); padding: 14px; border-radius: var(--radius-md); border: 1px solid var(--color-border);">
+            <strong style="font-size: 0.82rem; color: var(--color-primary); display: flex; align-items: center; gap: 6px; margin-bottom: 4px;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="8" height="4" x="8" y="2" rx="1" ry="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><path d="M12 11h4"/><path d="M12 16h4"/><path d="M8 11h.01"/><path d="M8 16h.01"/></svg>Active Treatment Plan</strong>
+            <p style="font-size: 0.78rem; color: var(--text-main);" id="modal-chart-plan">Invisalign aligner tray #8 of 14. Minor crowding on lower incisors correcting on schedule.</p>
+          </div>
+        </div>
+
+      </div>
+      <div class="dash-modal-footer">
+        <button type="button" class="dash-btn dash-btn-outline" data-close-modal="modal-patient-chart">Close</button>
+        <button type="button" class="dash-btn dash-btn-primary" onclick="quickBookPatientFromChart()">Schedule Next Checkup</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="dash-modal-backdrop" id="modal-receipt-view" role="dialog" aria-modal="true" aria-labelledby="modal-receipt-title">
+    <div class="dash-modal" style="max-width: 640px;">
+      <div class="dash-modal-header">
+        <h3 class="dash-modal-title" id="modal-receipt-title">Official Dental Clinic Receipt</h3>
+        <button type="button" class="dash-modal-close" data-close-modal="modal-receipt-view" aria-label="Close modal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg></button>
+      </div>
+      <div class="dash-modal-body">
+
+        <div class="dash-receipt-box" id="dash-printable-receipt">
+          <div class="dash-receipt-header">
+            <div>
+              <h2 style="color: var(--color-primary); font-size: 1.4rem; font-weight: 800; margin-bottom: 2px;">Oralize Dental Center</h2>
+              <p style="font-size: 0.78rem; color: #666; line-height: 1.3;">452 Madison Ave, Suite 600, New York, NY 10022<br>Tel: +1 (800) 482-3920 • billing@oralizeclinic.com</p>
+            </div>
+            <div style="text-align: right;">
+              <span class="dash-badge dash-badge-paid" id="receipt-status-badge">PAID IN FULL</span>
+              <div style="font-size: 0.78rem; color: #666; margin-top: 6px;" id="receipt-inv-num">INV-2026-8921</div>
+              <div style="font-size: 0.78rem; color: #666;" id="receipt-date">Oct 21, 2026</div>
+            </div>
+          </div>
+
+          <div style="display: flex; justify-content: space-between; margin-bottom: 20px; font-size: 0.85rem;">
+            <div>
+              <span style="color: #888; font-size: 0.75rem; text-transform: uppercase; font-weight: 700; display: block;">Bill To:</span>
+              <strong id="receipt-patient-name">Eleanor Vance</strong>
+              <div style="color: #666;" id="receipt-patient-id">MRN: #OR-2026-8491</div>
+            </div>
+            <div style="text-align: right;">
+              <span style="color: #888; font-size: 0.75rem; text-transform: uppercase; font-weight: 700; display: block;">Attending Dentist:</span>
+              <strong id="receipt-doctor-name">Dr. Sarah Jenkins, DDS</strong>
+              <div style="color: #666;">Operatory Wing A</div>
+            </div>
+          </div>
+
+          <table class="dash-receipt-items-table">
+            <thead>
+              <tr>
+                <th>Code & Description</th>
+                <th>Qty</th>
+                <th>Unit Price</th>
+                <th style="text-align: right;">Total</th>
+              </tr>
+            </thead>
+            <tbody id="receipt-items-tbody">
+              <tr>
+                <td><strong>D8090</strong> — Invisalign Comprehensive Orthodontic Adjustment</td>
+                <td>1</td>
+                <td>$320.00</td>
+                <td style="text-align: right;">$320.00</td>
+              </tr>
+              <tr>
+                <td><strong>D0140</strong> — Limited Clinical Oral Evaluation</td>
+                <td>1</td>
+                <td>$80.00</td>
+                <td style="text-align: right;">$80.00</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <div style="display: flex; justify-content: flex-end; margin-top: 14px;">
+            <div style="width: 240px; font-size: 0.85rem;">
+              <div style="display: flex; justify-content: space-between; padding: 4px 0;">
+                <span style="color: #666;">Subtotal:</span>
+                <strong id="receipt-subtotal">$400.00</strong>
+              </div>
+              <div style="display: flex; justify-content: space-between; padding: 4px 0;">
+                <span style="color: #666;">Insurance Paid:</span>
+                <strong style="color: #10b981;" id="receipt-ins-paid">-$160.00</strong>
+              </div>
+              <div style="display: flex; justify-content: space-between; padding: 8px 0; border-top: 2px solid #222; font-size: 1.05rem;">
+                <strong>Patient Paid:</strong>
+                <strong style="color: var(--color-primary);" id="receipt-patient-paid">$240.00</strong>
+              </div>
+            </div>
+          </div>
+
+          <div style="margin-top: 24px; padding-top: 14px; border-top: 1px dashed #ddd; font-size: 0.75rem; color: #888; display: flex; justify-content: space-between; align-items: center;">
+            <span>Payment Method: Visa ending in •••• 4219 (Authorized)</span>
+            <span>Thank you for trusting Oralize Dental!</span>
+          </div>
+        </div>
+
+      </div>
+      <div class="dash-modal-footer">
+        <button type="button" class="dash-btn dash-btn-outline" data-close-modal="modal-receipt-view">Close</button>
+        <button type="button" class="dash-btn dash-btn-primary" onclick="printReceipt()">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 6 2 18 2 18 9"></polyline><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path><rect x="6" y="14" width="12" height="8"></rect></svg>
+          <span>Print Receipt</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="dash-toast-container" id="dash-toast-container" aria-live="polite"></div>
+
+  <script src="dashboard.js"></script>
+</body>
+</html>
