@@ -8,12 +8,12 @@ function initToothInteractions() {
   const speechBubble = document.getElementById('tooth-speech');
   if (!toothSlot || !toothImg || !speechBubble) return;
   const playfulQuotes = [
-    "I'm 100% cavity-free! ✨",
-    "Don't worry, we don't bite! 😁",
+    "I'm 100% cavity-free!",
+    "Don't worry, we don't bite!",
     "Looks like this page needs a filling!",
-    "Floss daily for happy smiles! 🦷",
+    "Floss daily for happy smiles!",
     "Missing tooth found safe and sound!",
-    "Root canal complete, let's head home! 🚀"
+    "Root canal complete, let's head home!"
   ];
   let quoteIndex = 0;
   toothSlot.addEventListener('click', () => {
@@ -36,17 +36,20 @@ function initToothInteractions() {
 }
 function createSparkleBurst(container) {
   const count = 5;
-  const symbols = ['✦', '✨', '★', '🦷', '✦'];
+  const lucideSvgs = [
+    '<svg class="lucide lucide-sparkles" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/></svg>',
+    '<svg class="lucide lucide-star" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="1.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>',
+    '<svg class="lucide lucide-sparkle" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M12 0L14.59 9.41L24 12L14.59 14.59L12 24L9.41 14.59L0 12L9.41 9.41L12 0Z"/></svg>'
+  ];
   const colors = ['#FFB703', '#FF4D6D', '#B51F3D', '#48CAE4', '#FFD166'];
   for (let i = 0; i < count; i++) {
     const sparkle = document.createElement('span');
     sparkle.className = 'dynamic-sparkle';
-    sparkle.textContent = symbols[i % symbols.length];
+    sparkle.innerHTML = lucideSvgs[i % lucideSvgs.length];
     sparkle.style.position = 'absolute';
     sparkle.style.left = '50%';
     sparkle.style.top = '50%';
     sparkle.style.pointerEvents = 'none';
-    sparkle.style.fontSize = `${14 + Math.random() * 12}px`;
     sparkle.style.color = colors[i % colors.length];
     sparkle.style.zIndex = '20';
     sparkle.style.transform = 'translate(-50%, -50%)';

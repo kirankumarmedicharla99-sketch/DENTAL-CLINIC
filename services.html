@@ -113,7 +113,30 @@
     <section class="services-hero" aria-label="Dental Services Overview">
       <div class="container-wide">
         <div class="services-hero-grid">
-          <!-- Left Column: Aligned exactly like the reference template -->
+          <!-- Left Column: Dominant 3D Tooth Sculpture Image -->
+          <div class="services-hero-visual">
+            <div class="services-tooth-stage" aria-label="Interactive 3D Porcelain Tooth and Implant Sculpture">
+              <!-- Ambient Luminous Glow Behind Sculpture -->
+              <div class="services-tooth-ambient-glow" aria-hidden="true"></div>
+
+              <!-- 3D Tooth Sculpture with Dentists & Scaffolding (Clean Transparent PNG) -->
+              <div class="services-tooth-float-wrap">
+                <img 
+                  src="assets/images/service_tooth_sculpture_3d_transparent.png" 
+                  alt="3D Giant Porcelain Tooth Mounted on Titanium Implant Base with Dental Specialists Crafting Enamel" 
+                  class="services-tooth-3d-img"
+                  loading="eager"
+                  width="720" 
+                  height="760"
+                >
+              </div>
+
+              <!-- Ground Ambient Shadow Below Implant Base -->
+              <div class="services-tooth-ground-shadow" aria-hidden="true"></div>
+            </div>
+          </div>
+
+          <!-- Right Column: Content Hierarchy & Interactive Showcase -->
           <div class="services-hero-content">
             <!-- Eyebrow Pill Badge -->
             <div class="services-hero-eyebrow">
@@ -141,7 +164,7 @@
               Using advanced technology and gentle clinical mastery, we deliver comprehensive dental treatments tailored for a healthy, radiant smile that lasts a lifetime.
             </p>
 
-            <!-- Bottom Left Feature Zone: Celebrating Patient + Stat Card + Rotating Consultation Sticker -->
+            <!-- Feature Zone: Celebrating Patient + Stat Card + Rotating Consultation Sticker -->
             <div class="services-hero-showcase">
               <!-- Patient Photo (Transparent, Free Floating) -->
               <div class="services-showcase-patient">
@@ -180,29 +203,6 @@
                   </svg>
                 </span>
               </button>
-            </div>
-          </div>
-
-          <!-- Right Column: Dominant 3D Tooth Sculpture (NO CARD / Free Floating with Aura) -->
-          <div class="services-hero-visual">
-            <div class="services-tooth-stage" aria-label="Interactive 3D Porcelain Tooth and Implant Sculpture">
-              <!-- Ambient Luminous Glow Behind Sculpture -->
-              <div class="services-tooth-ambient-glow" aria-hidden="true"></div>
-
-              <!-- 3D Tooth Sculpture with Dentists & Scaffolding (Clean Transparent PNG) -->
-              <div class="services-tooth-float-wrap">
-                <img 
-                  src="assets/images/service_tooth_sculpture_3d_transparent.png" 
-                  alt="3D Giant Porcelain Tooth Mounted on Titanium Implant Base with Dental Specialists Crafting Enamel" 
-                  class="services-tooth-3d-img"
-                  loading="eager"
-                  width="720" 
-                  height="760"
-                >
-              </div>
-
-              <!-- Ground Ambient Shadow Below Implant Base -->
-              <div class="services-tooth-ground-shadow" aria-hidden="true"></div>
             </div>
           </div>
         </div>
@@ -276,7 +276,7 @@
           <!-- Service 04: Root Canal Treatment -->
           <article class="service-card-item">
             <div class="service-card-img-wrap">
-              <img src="assets/images/about_clinic_interior.jpg" alt="Gentle microscopic root canal treatment operatory" loading="lazy">
+              <img src="assets/images/service_rootcanal.jpg" alt="Microscopic endodontic root canal therapy" loading="lazy">
             </div>
             <div class="service-card-body">
               <div class="service-card-cat">Endodontics</div>
@@ -292,7 +292,7 @@
           <!-- Service 05: Dental Implants -->
           <article class="service-card-item">
             <div class="service-card-img-wrap">
-              <img src="assets/images/hero_dental_model.jpg" alt="3D dental teeth anatomy and implant tooth replacement model" loading="lazy">
+              <img src="assets/images/service_implants.jpg" alt="Titanium dental implant and ceramic crown restoration" loading="lazy">
             </div>
             <div class="service-card-body">
               <div class="service-card-cat">Surgical Restoration</div>
@@ -308,7 +308,7 @@
           <!-- Service 06: Teeth Whitening -->
           <article class="service-card-item">
             <div class="service-card-img-wrap">
-              <img src="assets/images/about_smile_stylish.jpg" alt="Radiant white smile and cosmetic teeth whitening" loading="lazy">
+              <img src="assets/images/service_whitening.jpg" alt="Professional in-office laser teeth whitening procedure" loading="lazy">
             </div>
             <div class="service-card-body">
               <div class="service-card-cat">Cosmetic Dentistry</div>
@@ -333,7 +333,7 @@
           <!-- Left: Large Image -->
           <div class="services-approach-visual">
             <div class="services-approach-img-box">
-              <img src="assets/images/feature_dentist_tech.jpg" alt="Dentist consulting with patient in modern clinic" loading="lazy">
+              <img src="assets/images/services_approach_tech.jpg" alt="Dentist performing digital 3D intraoral optical scan in modern clinic" loading="lazy">
             </div>
           </div>
 
@@ -390,20 +390,69 @@
       <div class="container">
         <div class="services-cta-banner">
           <div class="services-cta-grid">
-            <div class="services-cta-content">
-              <h2 id="cta-heading">Your Smile Deserves <span class="highlight-champagne">Thoughtful Care</span>.</h2>
-              <p>
-                Whether you need a routine checkup or want to explore a treatment option, our team is here to help you take the next step.
-              </p>
+            <!-- Left: Visual Image & Floating Trust Badges -->
+            <div class="services-cta-visual">
+              <div class="services-cta-img-box">
+                <img src="assets/images/services_cta_patient.jpg" alt="Patient consultation in luxury dental clinic" class="services-cta-img" loading="lazy" width="600" height="450">
+                <div class="services-cta-badge-satisfaction" aria-label="Satisfaction rating">
+                  <span class="badge-star" aria-hidden="true"><svg class="lucide lucide-star" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></span>
+                  <div class="badge-text-group">
+                    <strong>4.9/5</strong>
+                    <span>Patient Rating</span>
+                  </div>
+                </div>
+                <div class="services-cta-trust-pill">
+                  <div class="services-cta-avatar-stack">
+                    <img src="assets/images/doctor_sarah.jpg" alt="Dr. Sarah Mitchell" width="28" height="28">
+                    <img src="assets/images/doctor_marcus.jpg" alt="Dr. Marcus Vance" width="28" height="28">
+                    <img src="assets/images/doctor_elena.jpg" alt="Dr. Elena Rostova" width="28" height="28">
+                  </div>
+                  <span>Board Specialists</span>
+                </div>
+              </div>
             </div>
-            <div class="services-cta-actions">
-              <button type="button" class="btn btn-white btn-lg btn-book-appointment" data-open-modal="appointment-modal">
-                <span>Book an Appointment</span>
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
-              </button>
-              <a href="contact.html" class="btn btn-outline-white btn-lg">
-                <span>Contact Our Team</span>
-              </a>
+
+            <!-- Right: Content & Action Buttons -->
+            <div class="services-cta-content">
+              <div class="eyebrow eyebrow-white services-cta-eyebrow">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                <span>TRANSFORM YOUR SMILE</span>
+              </div>
+              <h2 id="cta-heading">Your Smile Deserves <span class="highlight-champagne">Thoughtful Care</span>.</h2>
+              <p class="services-cta-desc">
+                Whether you need a routine checkup, orthodontic consultation, or a smile makeover, our caring team is ready to provide gentle, world-class dental care tailored just for you.
+              </p>
+
+              <div class="services-cta-perks">
+                <div class="services-cta-perk">
+                  <span class="services-cta-perk-icon" aria-hidden="true">
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+                  </span>
+                  <span>Personalized 3D Digital Assessment</span>
+                </div>
+                <div class="services-cta-perk">
+                  <span class="services-cta-perk-icon" aria-hidden="true">
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+                  </span>
+                  <span>Gentle, Pain-Free & Anxiety-Free Experience</span>
+                </div>
+                <div class="services-cta-perk">
+                  <span class="services-cta-perk-icon" aria-hidden="true">
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+                  </span>
+                  <span>Transparent Upfront Pricing & Insurance Support</span>
+                </div>
+              </div>
+
+              <div class="services-cta-actions">
+                <button type="button" class="btn btn-white btn-lg btn-book-appointment" data-open-modal="appointment-modal">
+                  <span>Book an Appointment</span>
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
+                </button>
+                <a href="contact.html" class="btn btn-outline-white btn-lg">
+                  <span>Contact Our Team</span>
+                </a>
+              </div>
             </div>
           </div>
         </div>

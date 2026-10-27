@@ -73,7 +73,7 @@ const SERVICES_DATA = {
       'When tooth enamel is compromised by bacterial decay or minor fracture, timely restorative treatment preserves structural integrity and prevents deep pulp infections.',
       'At Oralize, we utilize modern tooth-colored composite resins and ceramic inlays that bond directly to the tooth structure. These biocompatible restorations reinforce the remaining tooth walls while matching your natural enamel translucency.'
     ],
-    overviewImage: 'assets/images/feature_dentist_tech.jpg',
+    overviewImage: 'assets/images/services_approach_tech.jpg',
     benefits: [
       {
         icon: '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>',
@@ -191,7 +191,7 @@ const SERVICES_DATA = {
     eyebrow: 'ENDODONTIC SPECIALTY',
     heroTitle: 'Relieving Discomfort. Preserving Your Natural Tooth.',
     heroDescription: 'Learn how modern root canal treatment may help manage infection or inflammation inside a tooth, saving your natural root and restoring lasting oral comfort.',
-    heroImage: 'assets/images/feature_dentist_tech.jpg',
+    heroImage: 'assets/images/service_rootcanal.jpg',
     overviewTitle: 'Microscopic Endodontic Care for Natural Tooth Preservation.',
     overviewParagraphs: [
       'Deep tooth decay, repeated dental procedures, or traumatic injury can cause inflammation or infection of the pulp tissue located deep within the root canals of a tooth.',
@@ -253,7 +253,7 @@ const SERVICES_DATA = {
     eyebrow: 'PERMANENT TOOTH RESTORATION',
     heroTitle: 'Permanent Tooth Replacement That Feels Like You.',
     heroDescription: 'Explore implant-based tooth replacement options and the assessment involved in treatment planning. Restore your smile, chewing function, and long-term jawbone vitality.',
-    heroImage: 'assets/images/hero_dental_model.jpg',
+    heroImage: 'assets/images/service_implants.jpg',
     overviewTitle: 'The Gold Standard for Replacing Missing Teeth.',
     overviewParagraphs: [
       'Missing teeth can cause difficulty chewing, changes in speech, and gradual bone resorption in the jaw over time. A dental implant functions as a synthetic root that integrates naturally with your bone tissue.',
@@ -315,7 +315,7 @@ const SERVICES_DATA = {
     eyebrow: 'AESTHETIC COSMETIC DENTISTRY',
     heroTitle: 'Reveal the Natural Radiance of Your Smile.',
     heroDescription: 'Learn about professional teeth whitening options and whether treatment may be suitable for your smile. Lift stubborn coffee, tea, and age stains safely and effectively.',
-    heroImage: 'assets/images/about_smile_stylish.jpg',
+    heroImage: 'assets/images/service_whitening.jpg',
     overviewTitle: 'Professional In-Office & Take-Home Whitening Systems.',
     overviewParagraphs: [
       'Over-the-counter whitening strips and abrasive charcoals can cause tooth sensitivity and uneven patchy results. Professional whitening performed under dental supervision delivers safe, even, and long-lasting brightness.',

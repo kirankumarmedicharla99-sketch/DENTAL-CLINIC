@@ -209,10 +209,10 @@ function initCharts() {
             }
           },
           tooltip: {
-            backgroundColor: isDark ? '#2e0710' : '#ffffff',
+            backgroundColor: isDark ? '#1a1b20' : '#ffffff',
             titleColor: '#ffffff',
-            bodyColor: isDark ? '#fcdde4' : '#777078',
-            borderColor: isDark ? 'rgba(255, 255, 255, 0.25)' : '#f0e6e8',
+            bodyColor: isDark ? '#9ca3af' : '#777078',
+            borderColor: isDark ? 'rgba(255, 255, 255, 0.15)' : '#f0e6e8',
             borderWidth: 1,
             padding: 12,
             boxPadding: 6,
@@ -318,10 +318,10 @@ function initCharts() {
             }
           },
           tooltip: {
-            backgroundColor: isDark ? '#2e0710' : '#ffffff',
+            backgroundColor: isDark ? '#1a1b20' : '#ffffff',
             titleColor: '#ffffff',
-            bodyColor: isDark ? '#fcdde4' : '#777078',
-            borderColor: isDark ? 'rgba(255, 255, 255, 0.25)' : '#f0e6e8',
+            bodyColor: isDark ? '#9ca3af' : '#777078',
+            borderColor: isDark ? 'rgba(255, 255, 255, 0.15)' : '#f0e6e8',
             borderWidth: 1,
             padding: 10
           }
@@ -352,7 +352,7 @@ function initCharts() {
               ? ['#ffffff', '#f43f5e', '#60a5fa', '#34d399']
               : ['#B51F3D', '#e02f54', '#3b82f6', '#10b981'],
             borderWidth: isDark ? 2 : 2,
-            borderColor: isDark ? '#780e22' : '#ffffff',
+            borderColor: isDark ? '#1a1b20' : '#ffffff',
             hoverOffset: 6
           }
         ]
@@ -364,10 +364,10 @@ function initCharts() {
         plugins: {
           legend: { display: false },
           tooltip: {
-            backgroundColor: isDark ? '#2e0710' : '#ffffff',
+            backgroundColor: isDark ? '#1a1b20' : '#ffffff',
             titleColor: '#ffffff',
-            bodyColor: isDark ? '#fcdde4' : '#777078',
-            borderColor: isDark ? 'rgba(255, 255, 255, 0.25)' : '#f0e6e8',
+            bodyColor: isDark ? '#9ca3af' : '#777078',
+            borderColor: isDark ? 'rgba(255, 255, 255, 0.15)' : '#f0e6e8',
             borderWidth: 1,
             callbacks: {
               label: function(context) {
@@ -417,7 +417,7 @@ function updateChartsTheme(theme) {
     circleChartInstance.data.datasets[0].backgroundColor = isDark
       ? ['#ffffff', '#f43f5e', '#60a5fa', '#34d399']
       : ['#B51F3D', '#e02f54', '#3b82f6', '#10b981'];
-    circleChartInstance.data.datasets[0].borderColor = isDark ? '#780e22' : '#ffffff';
+    circleChartInstance.data.datasets[0].borderColor = isDark ? '#1a1b20' : '#ffffff';
     circleChartInstance.update();
   }
 }
@@ -630,7 +630,7 @@ const defaultAppointments = [
   {
     id: 'APT-8424',
     patient: 'James Wilson',
-    avatar: 'assets/images/hero_dental_model.jpg',
+    avatar: 'assets/images/patient_liam.jpg',
     service: 'Dental Implant Follow-up',
     specialty: 'Implantology',
     doctor: 'Dr. Marcus Vance',
@@ -642,7 +642,7 @@ const defaultAppointments = [
   {
     id: 'APT-8425',
     patient: 'Emily Chen',
-    avatar: 'assets/images/about_smile_stylish.jpg',
+    avatar: 'assets/images/patient_elena.jpg',
     service: 'Laser Teeth Whitening',
     specialty: 'Cosmetic',
     doctor: 'Dr. Elena Rostova',
@@ -839,7 +839,7 @@ const patientsData = [
   {
     mrn: 'OR-2026-8494',
     name: 'James Wilson',
-    avatar: 'assets/images/hero_dental_model.jpg',
+    avatar: 'assets/images/patient_liam.jpg',
     gender: 'Male',
     age: 58,
     phone: '+1 (555) 839-2041',
@@ -853,7 +853,7 @@ const patientsData = [
   {
     mrn: 'OR-2026-8495',
     name: 'Emily Chen',
-    avatar: 'assets/images/about_smile_stylish.jpg',
+    avatar: 'assets/images/patient_elena.jpg',
     gender: 'Female',
     age: 26,
     phone: '+1 (555) 294-8172',

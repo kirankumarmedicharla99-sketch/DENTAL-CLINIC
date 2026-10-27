@@ -62,10 +62,15 @@ function initVipSubscription() {
 }
 function triggerCelebrationConfetti() {
   const colors = ['#B51F3D', '#FF4D6D', '#FFB703', '#48CAE4', '#52B788'];
-  const symbols = ['✦', '✨', '🦷', '★', '●'];
+  const lucideSvgs = [
+    '<svg class="lucide lucide-sparkles" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/></svg>',
+    '<svg class="lucide lucide-star" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="1.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>',
+    '<svg class="lucide lucide-sparkle" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M12 0L14.59 9.41L24 12L14.59 14.59L12 24L9.41 14.59L0 12L9.41 9.41L12 0Z"/></svg>',
+    '<svg class="lucide lucide-smile" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg>'
+  ];
   for (let i = 0; i < 28; i++) {
     const el = document.createElement('div');
-    el.textContent = symbols[Math.floor(Math.random() * symbols.length)];
+    el.innerHTML = lucideSvgs[Math.floor(Math.random() * lucideSvgs.length)];
     el.style.position = 'fixed';
     el.style.left = `${50 + (Math.random() * 20 - 10)}%`;
     el.style.top = `${50 + (Math.random() * 20 - 10)}%`;

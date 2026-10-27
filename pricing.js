@@ -72,6 +72,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initChartControls();
   renderSvgChart();
   initGalleryLightbox();
+  initPricingRolloutCard();
   const dirObserver = new MutationObserver((mutations) => {
     mutations.forEach((mutation) => {
       if (mutation.type === 'attributes' && mutation.attributeName === 'dir') {
@@ -437,5 +438,86 @@ function initGalleryLightbox() {
     if (e.key === 'Escape' && lightbox.classList.contains('is-open')) {
       closeLightbox();
     }
+  });
+}
+
+function initPricingRolloutCard() {
+  const rolloutCard = document.getElementById('pricing-rollout-card');
+  if (!rolloutCard) return;
+
+  const tabs = rolloutCard.querySelectorAll('.rollout-step-tab');
+  const slides = rolloutCard.querySelectorAll('.rollout-slide');
+  const progressBar = document.getElementById('rollout-progress-bar');
+  const prevBtn = document.getElementById('rollout-prev-btn');
+  const nextBtn = document.getElementById('rollout-next-btn');
+  const rollNextBtns = rolloutCard.querySelectorAll('.rollout-roll-next-btn');
+
+  let activeIndex = 0;
+  const totalSlides = slides.length;
+
+  function setRolloutStage(index) {
+    if (index < 0) index = totalSlides - 1;
+    if (index >= totalSlides) index = 0;
+    activeIndex = index;
+
+    tabs.forEach((tab, idx) => {
+      const isSelected = idx === activeIndex;
+      tab.classList.toggle('is-active', isSelected);
+      tab.setAttribute('aria-selected', isSelected ? 'true' : 'false');
+    });
+
+    slides.forEach((slide, idx) => {
+      if (idx === activeIndex) {
+        slide.classList.remove('is-active');
+        void slide.offsetWidth;
+        slide.classList.add('is-active');
+      } else {
+        slide.classList.remove('is-active');
+      }
+    });
+
+    if (progressBar) {
+      const pct = ((activeIndex + 1) / totalSlides) * 100;
+      progressBar.style.width = `${pct}%`;
+    }
+  }
+
+  tabs.forEach((tab) => {
+    tab.addEventListener('click', () => {
+      const stage = parseInt(tab.getAttribute('data-rollout-stage') || '0', 10);
+      setRolloutStage(stage);
+    });
+  });
+
+  if (prevBtn) {
+    prevBtn.addEventListener('click', () => {
+      setRolloutStage(activeIndex - 1);
+    });
+  }
+
+  if (nextBtn) {
+    nextBtn.addEventListener('click', () => {
+      setRolloutStage(activeIndex + 1);
+    });
+  }
+
+  rollNextBtns.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      setRolloutStage(activeIndex + 1);
+    });
+  });
+
+  tabs.forEach((tab) => {
+    tab.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight') {
+        e.preventDefault();
+        setRolloutStage(activeIndex + 1);
+        tabs[activeIndex]?.focus();
+      } else if (e.key === 'ArrowLeft') {
+        e.preventDefault();
+        setRolloutStage(activeIndex - 1);
+        tabs[activeIndex]?.focus();
+      }
+    });
   });
 }

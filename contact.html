@@ -113,53 +113,125 @@
     <section class="contact-hero" aria-label="Contact Oralize Introduction">
       <div class="container-wide">
         <div class="contact-hero-grid">
+          <!-- Left Content: High-end Typography, Para, Actions & Reassurance -->
           <div class="contact-hero-content">
-            <div class="eyebrow contact-hero-eyebrow">WE'RE HERE TO HELP</div>
+            <div class="eyebrow contact-hero-eyebrow">
+              <span class="contact-pulse-dot" aria-hidden="true"></span>
+              <span>Direct Patient Concierge</span>
+            </div>
 
             <h1 class="contact-hero-title">
-              Your Smile <span class="highlight-champagne">Matters More</span>.
+              Your Smile <span class="highlight-champagne">Matters More</span>
             </h1>
 
             <p class="contact-hero-desc">
-              Whether you are planning a routine dental visit or exploring treatment options, our team is here to help
-              you find the information and support you need.
+              Whether you are planning a routine dental visit, scheduling specialized restorative care, or clarifying
+              personalized financing, our clinical concierge is here to listen and guide you every step of the way.
             </p>
 
             <div class="contact-hero-actions">
               <a href="#inquiry-form-section" class="btn btn-primary btn-lg" id="hero-inquiry-btn">
                 <span>Send an Enquiry</span>
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                  aria-hidden="true">
                   <polyline points="9 18 15 12 9 6" />
                 </svg>
               </a>
 
               <a href="services.html" class="btn btn-outline btn-lg">
                 <span>Explore Our Services</span>
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                  aria-hidden="true">
                   <line x1="5" y1="12" x2="19" y2="12" />
                   <polyline points="12 5 19 12 12 19" />
                 </svg>
               </a>
             </div>
 
-            <div class="contact-hero-reassurance">
-              <span class="reassurance-dot" aria-hidden="true"></span>
-              <p>Thoughtful, confidential consultations tailored to your oral health and smile goals.</p>
+            <div class="contact-hero-trust-strip">
+              <div class="contact-trust-item">
+                <span class="trust-icon-dot" aria-hidden="true">
+                  <svg class="lucide lucide-check" width="11" height="11" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="20 6 9 17 4 12" />
+                  </svg>
+                </span>
+                <span>Under 15-min response</span>
+              </div>
+              <div class="contact-trust-item">
+                <span class="trust-icon-dot" aria-hidden="true">
+                  <svg class="lucide lucide-check" width="11" height="11" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="20 6 9 17 4 12" />
+                  </svg>
+                </span>
+                <span>100% confidential advice</span>
+              </div>
+              <div class="contact-trust-item">
+                <span class="trust-icon-dot" aria-hidden="true">
+                  <svg class="lucide lucide-check" width="11" height="11" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="20 6 9 17 4 12" />
+                  </svg>
+                </span>
+                <span>Specialists on-duty</span>
+              </div>
             </div>
           </div>
 
-          <div class="contact-hero-visual">
-            <div class="contact-hero-image-wrap">
-              <img src="assets/images/contact_hero_consultation.jpg"
-                alt="Female dentist warmly consulting with a smiling patient in a bright, modern dental clinic"
-                class="contact-hero-img" loading="eager" fetchpriority="high" width="720" height="540">
+          <!-- Right Visual: Unique 3 Image Cards Bento Triptych, Neatly Right-Aligned & Perfectly In-Frame -->
+          <div class="contact-hero-visual" aria-label="Oralize Clinical Experience">
+            <div class="contact-hero-triptych">
+              <!-- Card 1: Main Feature Consultation (Spans 2 rows) -->
+              <div class="contact-triptych-card card-tall">
+                <div class="triptych-img-wrap">
+                  <img src="assets/images/contact_hero_consultation.jpg"
+                    alt="Female dentist warmly consulting with a smiling patient in a bright, modern suite"
+                    class="triptych-img" loading="eager" fetchpriority="high" width="480" height="560">
+                  <div class="triptych-scrim" aria-hidden="true"></div>
+                </div>
+                <div class="triptych-badge">
+                  <span class="triptych-badge-num">01</span>
+                  <span class="triptych-badge-label">Personal Consultation</span>
+                </div>
+              </div>
+
+              <!-- Card 2: Modern Diagnostics (Top Right) -->
+              <div class="contact-triptych-card card-wide">
+                <div class="triptych-img-wrap">
+                  <img src="assets/images/contact_hero_teeth_exam.jpg"
+                    alt="Modern precision dental diagnostic examination" class="triptych-img" loading="eager"
+                    width="360" height="260">
+                  <div class="triptych-scrim" aria-hidden="true"></div>
+                </div>
+                <div class="triptych-badge">
+                  <span class="triptych-badge-num">02</span>
+                  <span class="triptych-badge-label">Precision Diagnostics</span>
+                </div>
+              </div>
+
+              <!-- Card 3: Radiant Healthy Smile (Bottom Right) -->
+              <div class="contact-triptych-card card-wide">
+                <div class="triptych-img-wrap">
+                  <img src="assets/images/about_smile_stylish.jpg"
+                    alt="Smiling, confident dental patient after gentle care" class="triptych-img" loading="eager"
+                    width="360" height="260">
+                  <div class="triptych-scrim" aria-hidden="true"></div>
+                </div>
+                <div class="triptych-badge">
+                  <span class="triptych-badge-num">03</span>
+                  <span class="triptych-badge-label">Gentle Smile Care</span>
+                </div>
+              </div>
             </div>
+
             <div class="contact-hero-caption">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
-                aria-hidden="true">
-                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+              <svg class="lucide lucide-sparkles" width="15" height="15" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2.2" aria-hidden="true">
+                <path
+                  d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z" />
               </svg>
-              <span>Thoughtful care begins with listening.</span>
+              <span>Thoughtful care begins with attentive listening.</span>
             </div>
           </div>
         </div>
@@ -270,7 +342,8 @@
                     aria-label="Call Oralize 24/7 dental emergency triage helpline">
                     +1 (800) 420-URGENT (24/7)
                   </a>
-                  <p class="contact-card-sub">Immediate on-call triage for severe pain, tooth fracture & dental trauma</p>
+                  <p class="contact-card-sub">Immediate on-call triage for severe pain, tooth fracture & dental trauma
+                  </p>
                   <a href="tel:+18004209111" class="contact-card-action-link">
                     <span>Same-Day Emergency Appointments</span>
                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
@@ -521,7 +594,7 @@
 
           <div class="faq-editorial-intro">
             <div class="eyebrow faq-eyebrow">A FEW THINGS YOU MIGHT WANT TO KNOW</div>
-            <h2 class="faq-main-heading">Before You <span class="highlight-champagne">Reach Out</span>.</h2>
+            <h2 class="faq-main-heading">Before You <span class="highlight-champagne">Reach Out</span></h2>
             <p class="faq-intro-text">
               Here are answers to common questions about contacting our team and arranging a visit.
             </p>
