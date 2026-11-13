@@ -236,12 +236,18 @@ html, body {
   width: 20px;
   height: 20px;
 }
-.auth-brand-center .brand-logo-text {
+.auth-brand-center .brand-logo-text,
+.auth-brand-center .brand-logo > span:not(.brand-logo-icon) {
   font-family: var(--font-heading);
   font-size: 1.45rem;
   font-weight: 800;
   letter-spacing: -0.025em;
-  color: var(--text-main);
+  color: #D8B26E !important;
+  background: var(--gradient-gold-btn, linear-gradient(135deg, #F5DFB3 0%, #D8B26E 50%, #C4984F 100%)) !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  display: inline-block;
 }
 .auth-header {
   text-align: center;
@@ -541,7 +547,7 @@ html, body {
 }
 .auth-switch-link:hover {
   text-decoration: underline;
-  color: var(--color-hero-red);
+  color: var(--color-primary);
 }
 [data-theme="dark"] .auth-switch-link {
   color: #ffffff !important;
