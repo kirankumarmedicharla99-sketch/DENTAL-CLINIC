@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 function initTheme() {
   const themeToggles = document.querySelectorAll('.theme-toggle');
-  const savedTheme = localStorage.getItem('oralize_theme') || 'light';
+  const savedTheme = localStorage.getItem('oralize_theme') || document.documentElement.getAttribute('data-theme') || 'light';
   applyTheme(savedTheme);
   themeToggles.forEach(toggle => {
     toggle.addEventListener('click', () => {
@@ -20,7 +20,6 @@ function initTheme() {
       const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
       applyTheme(newTheme);
       localStorage.setItem('oralize_theme', newTheme);
-      showToast(`Switched to ${newTheme === 'dark' ? 'Dark' : 'Light'} theme`, 'info');
     });
   });
 }
@@ -52,7 +51,6 @@ function initDirection() {
       const newDir = currentDir === 'rtl' ? 'ltr' : 'rtl';
       applyDirection(newDir);
       localStorage.setItem('oralize_dir', newDir);
-      showToast(`Switched layout to ${newDir.toUpperCase()}`, 'info');
     });
   });
 }

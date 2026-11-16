@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 function initAuthTheme() {
   const themeToggles = document.querySelectorAll('.theme-toggle');
-  const savedTheme = localStorage.getItem('oralize_theme') || 'light';
+  const savedTheme = localStorage.getItem('oralize_theme') || document.documentElement.getAttribute('data-theme') || 'light';
   applyAuthTheme(savedTheme);
   themeToggles.forEach(toggle => {
     toggle.addEventListener('click', () => {
@@ -16,7 +16,6 @@ function initAuthTheme() {
       const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
       applyAuthTheme(newTheme);
       localStorage.setItem('oralize_theme', newTheme);
-      showAuthToast(`Switched to ${newTheme === 'dark' ? 'Dark' : 'Light'} theme`);
     });
   });
 }
@@ -48,7 +47,6 @@ function initAuthDirection() {
       const newDir = currentDir === 'rtl' ? 'ltr' : 'rtl';
       applyAuthDirection(newDir);
       localStorage.setItem('oralize_dir', newDir);
-      showAuthToast(`Switched layout to ${newDir.toUpperCase()}`);
     });
   });
 }

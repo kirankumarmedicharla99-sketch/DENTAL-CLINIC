@@ -193,9 +193,9 @@ function renderSvgChart() {
     <svg viewBox="0 0 ${width} ${height}" class="pricing-svg-canvas" role="region" aria-label="Interactive dental pricing comparison chart">
       <defs>
         <linearGradient id="brandRedGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-          <stop offset="0%" stop-color="#C52243" />
-          <stop offset="50%" stop-color="#E83D62" />
-          <stop offset="100%" stop-color="#FF758F" />
+          <stop offset="0%" stop-color="#C4984F" />
+          <stop offset="50%" stop-color="#D8B26E" />
+          <stop offset="100%" stop-color="#F5DFB3" />
         </linearGradient>
       </defs>
       <!-- Grid lines -->

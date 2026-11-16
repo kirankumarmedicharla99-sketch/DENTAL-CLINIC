@@ -92,6 +92,9 @@
 [data-theme="dark"] .pricing-breadcrumb-centered .pricing-breadcrumb-current {
   color: #ffffff;
 }
+[data-theme="dark"] .pricing-breadcrumb-centered a:hover {
+  color: #D8B26E;
+}
 .pricing-hero-centered-content .pricing-hero-eyebrow {
   display: inline-flex;
   align-items: center;
@@ -289,8 +292,9 @@
   border-radius: var(--radius-pill);
 }
 [data-theme="dark"] .pricing-card-category-highlight {
-  color: #ffb8c7;
-  background: rgba(255, 255, 255, 0.12);
+  color: #F5E2B8;
+  background: rgba(216, 178, 110, 0.15);
+  border: 1px solid rgba(216, 178, 110, 0.3);
 }
 .pricing-card-icon-highlighted {
   background: var(--color-primary) !important;
@@ -369,7 +373,7 @@
   color: var(--color-primary);
 }
 [data-theme="dark"] .pricing-card-category {
-  color: #ffd6e0;
+  color: #F5E2B8;
 }
 .pricing-card-icon {
   width: 40px;
@@ -413,7 +417,7 @@
   color: #1f1b20;
 }
 [data-theme="dark"] .pricing-card-desc {
-  color: #ffe6eb;
+  color: var(--text-muted);
   font-weight: 500;
 }
 [data-theme="dark"] .pricing-card-box:hover .pricing-card-desc {
@@ -451,7 +455,7 @@
   color: #1f1b20;
 }
 [data-theme="dark"] .pricing-price-label {
-  color: #ffd2dc;
+  color: var(--text-muted);
   font-weight: 600;
 }
 [data-theme="dark"] .pricing-card-box:hover .pricing-price-label {
@@ -562,9 +566,9 @@
   gap: 14px;
 }
 [data-theme="dark"] .pricing-disclaimer-note {
-  color: #ffe6eb;
-  border-color: rgba(255, 255, 255, 0.25);
-  background: rgba(255, 255, 255, 0.08);
+  color: var(--text-muted);
+  border-color: rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.05);
 }
 .disclaimer-info-icon {
   color: var(--color-primary);
@@ -654,7 +658,7 @@
   line-height: 1.3;
 }
 [data-theme="dark"] .highlight-info span {
-  color: #ffd6e0;
+  color: var(--text-muted);
 }
 .live-pulse-dot {
   display: inline-block;
@@ -790,7 +794,7 @@
   fill: var(--text-muted);
 }
 [data-theme="dark"] .chart-axis-tick {
-  fill: #ffd1dc;
+  fill: var(--text-muted);
   font-weight: 700;
 }
 .chart-row-hover-bg {
@@ -832,7 +836,7 @@
   cursor: pointer;
 }
 [data-theme="dark"] .chart-bar-rect {
-  filter: drop-shadow(0 2px 6px rgba(255, 117, 143, 0.4));
+  filter: drop-shadow(0 2px 6px rgba(216, 178, 110, 0.45));
 }
 .chart-value-text {
   font-family: var(--font-heading);
@@ -888,7 +892,7 @@
   margin-bottom: 2px;
 }
 [data-theme="dark"] .tooltip-tag {
-  color: var(--color-bright-rose);
+  color: #F5E2B8;
 }
 .tooltip-title {
   display: block;
@@ -916,7 +920,7 @@
   font-weight: 800;
 }
 [data-theme="dark"] .tooltip-price-row strong {
-  color: var(--color-bright-rose);
+  color: #D8B26E;
 }
 .pricing-table-card {
   margin-top: 48px;
@@ -956,7 +960,7 @@
   margin-bottom: 6px;
 }
 [data-theme="dark"] .table-eyebrow {
-  color: #ffb3c1;
+  color: #F5E2B8;
 }
 .table-main-title {
   font-family: var(--font-heading);
@@ -1148,7 +1152,7 @@
   max-width: 320px;
 }
 [data-theme="dark"] .treatment-subtext {
-  color: #ffd6e0;
+  color: var(--text-muted);
 }
 .category-pill {
   display: inline-flex;
@@ -1194,13 +1198,13 @@
   background: var(--color-primary);
 }
 [data-theme="dark"] .category-restorative {
-  background: rgba(244, 63, 94, 0.18);
-  border-color: rgba(251, 113, 133, 0.35);
-  color: #FDA4AF;
+  background: rgba(216, 178, 110, 0.18);
+  border-color: rgba(216, 178, 110, 0.4);
+  color: #F5E2B8;
 }
 [data-theme="dark"] .category-restorative .category-dot {
-  background: #FB7185;
-  box-shadow: 0 0 6px rgba(251, 113, 133, 0.6);
+  background: #D8B26E;
+  box-shadow: 0 0 6px rgba(216, 178, 110, 0.6);
 }
 .category-cosmetic {
   background: #FFF8EA;
@@ -1244,7 +1248,7 @@
   color: #554e56;
 }
 [data-theme="dark"] .price-onwards {
-  color: #ffd6e0;
+  color: var(--text-muted);
 }
 .range-badge {
   display: inline-flex;
@@ -1411,8 +1415,8 @@
   width: 6px;
   height: 6px;
   border-radius: 50%;
-  background: #FF6B8B;
-  box-shadow: 0 0 8px rgba(255, 107, 139, 0.9);
+  background: #D8B26E;
+  box-shadow: 0 0 8px rgba(216, 178, 110, 0.7);
   flex-shrink: 0;
 }
 [data-theme="dark"] .mosaic-caption-tag {
@@ -1522,7 +1526,7 @@
   display: block;
 }
 [data-theme="dark"] .lightbox-tag {
-  color: var(--color-bright-rose);
+  color: #F5E2B8;
 }
 .lightbox-title {
   font-size: 1.35rem;
@@ -1865,6 +1869,49 @@
   padding: 7px 15px !important;
   font-size: 0.8rem !important;
   border-radius: var(--radius-pill);
+}
+.rollout-actions-row .btn-white,
+.rollout-actions-row .btn-book-appointment {
+  background: var(--gradient-gold-btn) !important;
+  color: var(--color-gold-text) !important;
+  border: 1px solid rgba(196, 152, 79, 0.45) !important;
+  box-shadow: 0 4px 16px rgba(216, 178, 110, 0.4) !important;
+  font-weight: 800 !important;
+  transition: all var(--transition-fast) !important;
+}
+.rollout-actions-row .btn-white svg,
+.rollout-actions-row .btn-book-appointment svg {
+  stroke: var(--color-gold-text) !important;
+}
+.rollout-actions-row .btn-white:hover,
+.rollout-actions-row .btn-book-appointment:hover {
+  background: var(--gradient-gold-btn-hover) !important;
+  color: #140C03 !important;
+  box-shadow: 0 8px 24px rgba(216, 178, 110, 0.6) !important;
+  transform: translateY(-2px) !important;
+}
+.rollout-actions-row .btn-white:hover svg,
+.rollout-actions-row .btn-book-appointment:hover svg {
+  stroke: #140C03 !important;
+}
+[data-theme="dark"] .rollout-actions-row .btn-white,
+[data-theme="dark"] .rollout-actions-row .btn-book-appointment {
+  background: var(--gradient-gold-btn) !important;
+  color: var(--color-gold-text) !important;
+  border: 1px solid rgba(248, 227, 184, 0.45) !important;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.35), 0 0 18px rgba(216, 178, 110, 0.45) !important;
+  font-weight: 800 !important;
+}
+[data-theme="dark"] .rollout-actions-row .btn-white:hover,
+[data-theme="dark"] .rollout-actions-row .btn-book-appointment:hover {
+  background: var(--gradient-gold-btn-hover) !important;
+  color: #140C03 !important;
+  box-shadow: 0 8px 28px rgba(216, 178, 110, 0.65) !important;
+  transform: translateY(-2px) !important;
+}
+[data-theme="dark"] .rollout-actions-row .btn-white:hover svg,
+[data-theme="dark"] .rollout-actions-row .btn-book-appointment:hover svg {
+  stroke: #140C03 !important;
 }
 .rollout-actions-row .btn-outline-white {
   border: 1px solid rgba(255, 255, 255, 0.2);

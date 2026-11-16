@@ -164,44 +164,49 @@ html, body {
   justify-content: center;
   align-items: center;
   position: relative;
-  padding: 20px 20px;
+  padding: 12px 20px;
   background-color: var(--bg-body);
   overflow-y: auto;
   scrollbar-width: thin;
 }
 .auth-top-controls {
   position: absolute;
-  top: 16px;
+  top: 14px;
   inset-inline-end: 20px;
   display: flex;
   align-items: center;
   gap: 10px;
   z-index: 10;
 }
-.auth-card-container {
+.auth-card-container,
+[data-theme="dark"] .auth-card-container {
   width: 100%;
-  max-width: 440px;
+  max-width: 430px;
   margin: auto;
-  padding: 6px 0;
+  padding: 0;
+  border: none !important;
+  box-shadow: none !important;
+  background: transparent !important;
+  outline: none !important;
 }
 .auth-card {
   background-color: var(--bg-surface-card);
-  border: 1px solid var(--color-border);
+  border: 1.5px solid #D8B26E !important;
   border-radius: var(--radius-xl);
-  padding: 24px 30px;
+  padding: 18px 28px;
   box-shadow: 0 14px 40px rgba(39, 35, 38, 0.07);
   position: relative;
 }
 [data-theme="dark"] .auth-card {
   background-color: var(--bg-surface);
-  border-color: var(--color-border);
+  border-color: #D8B26E !important;
   box-shadow: 0 16px 44px rgba(0, 0, 0, 0.45);
 }
 .auth-brand-center {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-bottom: 10px;
+  margin-bottom: 6px;
 }
 .auth-brand-center .brand-logo {
   display: inline-flex;
@@ -210,11 +215,11 @@ html, body {
   text-decoration: none;
 }
 .auth-brand-center .brand-logo-icon {
-  width: 48px;
-  height: 48px;
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
   background: #ffffff;
-  padding: 6px;
+  padding: 5px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -233,13 +238,17 @@ html, body {
   box-shadow: 0 0 20px rgba(216, 178, 110, 0.45), 0 0 0 1.5px var(--color-gold-base);
 }
 .auth-brand-center .brand-logo-icon svg {
-  width: 20px;
-  height: 20px;
+  width: 18px;
+  height: 18px;
+}
+.auth-brand-center .brand-logo-img {
+  width: 30px;
+  height: 30px;
 }
 .auth-brand-center .brand-logo-text,
 .auth-brand-center .brand-logo > span:not(.brand-logo-icon) {
   font-family: var(--font-heading);
-  font-size: 1.45rem;
+  font-size: 1.35rem;
   font-weight: 800;
   letter-spacing: -0.025em;
   color: #D8B26E !important;
@@ -251,20 +260,20 @@ html, body {
 }
 .auth-header {
   text-align: center;
-  margin-bottom: 14px;
+  margin-bottom: 8px;
 }
 .auth-title {
   font-family: var(--font-heading);
-  font-size: 1.45rem;
+  font-size: 1.32rem;
   font-weight: 800;
   letter-spacing: -0.025em;
   color: var(--text-main);
-  margin-bottom: 3px;
+  margin-bottom: 2px;
 }
 .auth-subtitle {
-  font-size: 0.82rem;
+  font-size: 0.78rem;
   color: var(--text-muted);
-  line-height: 1.4;
+  line-height: 1.35;
 }
 .auth-alert {
   padding: 8px 12px;
@@ -291,15 +300,15 @@ html, body {
   flex-direction: column;
 }
 .form-group {
-  margin-bottom: 10px;
+  margin-bottom: 7px;
   position: relative;
 }
 .form-label {
   display: block;
-  font-size: 0.8rem;
+  font-size: 0.76rem;
   font-weight: 600;
   color: var(--text-main);
-  margin-bottom: 4px;
+  margin-bottom: 2px;
 }
 .input-icon-wrap {
   position: relative;
@@ -308,11 +317,11 @@ html, body {
 }
 .input-icon-wrap .form-control {
   width: 100%;
-  height: 40px;
-  padding-inline-start: 13px;
-  padding-inline-end: 38px;
+  height: 36px;
+  padding-inline-start: 12px;
+  padding-inline-end: 36px;
   font-family: var(--font-body);
-  font-size: 0.89rem;
+  font-size: 0.84rem;
   color: var(--text-main);
   background-color: var(--bg-body);
   border: 1.5px solid var(--color-border);
@@ -379,8 +388,8 @@ html, body {
 .auth-options-row {
   display: flex;
   align-items: center;
-  margin-bottom: 12px;
-  font-size: 0.8rem;
+  margin-bottom: 8px;
+  font-size: 0.76rem;
 }
 .remember-label {
   display: inline-flex;
@@ -396,8 +405,8 @@ html, body {
   height: 0;
 }
 .checkbox-box {
-  width: 16px;
-  height: 16px;
+  width: 15px;
+  height: 15px;
   border-radius: 4px;
   border: 1.5px solid var(--color-border);
   background-color: var(--bg-body);
@@ -442,8 +451,8 @@ html, body {
 }
 .auth-submit-btn {
   width: 100%;
-  height: 42px;
-  font-size: 0.92rem;
+  height: 38px;
+  font-size: 0.88rem;
   font-weight: 700;
   border-radius: var(--radius-pill);
   gap: 8px;
@@ -475,7 +484,7 @@ html, body {
   display: flex;
   align-items: center;
   gap: 12px;
-  margin: 12px 0 10px;
+  margin: 8px 0;
 }
 .divider-line {
   flex: 1;
@@ -486,7 +495,7 @@ html, body {
   background-color: rgba(255, 255, 255, 0.35);
 }
 .divider-text {
-  font-size: 0.74rem;
+  font-size: 0.72rem;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.08em;
@@ -498,26 +507,30 @@ html, body {
 .social-login-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 10px;
-  margin-bottom: 12px;
+  gap: 8px;
+  margin-bottom: 8px;
 }
 .btn-social {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 8px;
-  height: 38px;
-  padding: 5px 12px;
+  height: 34px;
+  padding: 4px 10px;
   border-radius: var(--radius-pill);
   border: 1.5px solid var(--color-border);
   background-color: var(--bg-body);
   color: var(--text-main);
   font-family: var(--font-heading);
-  font-size: 0.86rem;
+  font-size: 0.82rem;
   font-weight: 700;
   cursor: pointer;
   transition: all var(--transition-fast);
   text-decoration: none;
+}
+.btn-social svg {
+  width: 17px;
+  height: 17px;
 }
 .btn-social:hover {
   border-color: rgba(181, 31, 61, 0.35);
@@ -535,8 +548,9 @@ html, body {
 }
 .auth-footer-prompt {
   text-align: center;
-  font-size: 0.86rem;
+  font-size: 0.8rem;
   color: var(--text-muted);
+  margin: 0;
 }
 .auth-switch-link {
   color: var(--color-primary);

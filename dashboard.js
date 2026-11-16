@@ -26,7 +26,6 @@ function initThemeSystem() {
       const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
       applyTheme(newTheme);
       localStorage.setItem('oralize_theme', newTheme);
-      showToast(`Switched to ${newTheme === 'dark' ? 'Dark' : 'Light'} theme`, 'info');
       updateChartsTheme(newTheme);
     });
   }
@@ -60,7 +59,6 @@ function initDirectionSystem() {
       const newDir = currentDir === 'rtl' ? 'ltr' : 'rtl';
       applyDirection(newDir);
       localStorage.setItem('oralize_dir', newDir);
-      showToast(`Layout switched to ${newDir.toUpperCase()}`, 'info');
       setTimeout(() => {
         if (lineChartInstance) lineChartInstance.resize();
         if (barChartInstance) barChartInstance.resize();
